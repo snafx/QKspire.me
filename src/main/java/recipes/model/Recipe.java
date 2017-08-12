@@ -73,6 +73,9 @@ public class Recipe {
     @Column
     private String reviews;
 
+    @Column
+    private Boolean isActive;
+
 
 
 
@@ -259,5 +262,13 @@ public class Recipe {
 
     public void setReviews(String reviews) {
         this.reviews = reviews;
+    }
+
+    public Boolean getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(Boolean isActive) {
+        this.isActive = isActive;
     }
 }

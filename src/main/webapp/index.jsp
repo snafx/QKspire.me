@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="recipes.repository.*,java.util.List,recipes.model.*"%>
+<%@ page import="java.util.Optional" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +37,7 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="index.html">Home</a></li>
+                    <li class="active"><a href="index.jsp">Home</a></li>
                     <li><a href="#">Products</a></li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="recipes.html">Recipes<span class="caret"></span></a>
@@ -82,18 +87,7 @@
 
     <div class="container category">
         <div class="btn-group btn-group-justified" role="group" aria-label="Recipes categories">
-            <div class="btn-group col-md-3" role="group">
-                <button type="button" class="btn category"> Meat </button>
-            </div>
-            <div class="btn-group col-md-3" role="group">
-                <button type="button" class="btn"> Fish </button>
-            </div>
-            <div class="btn-group col-md-3" role="group">
-                <button type="button" class="btn"> Vegetarian </button>
-            </div>
-            <div class="btn-group col-md-3" role="group">
-                <button type="button" class="btn"> Desserts </button>
-            </div>
+            <c:import url="category.jsp"/>
         </div>
     </div>
 
@@ -186,7 +180,7 @@
     <footer>
         <div class="container footer form-inline">
             <div class="col-md-3">
-                <a href="index.html"> Home </a>
+                <a href="index.jsp"> Home </a>
             </div>
             <div class="col-md-3">
                 <a href="products.html">Products</a>

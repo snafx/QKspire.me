@@ -13,199 +13,41 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <!--    <link rel="stylesheet" href="css/normalize.css">-->
-    <!--    <link rel="stylesheet" href="css/skeleton.css">-->
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="img/png" href="images/favicon.png">
 
-</head>
 
-<body>
-    <!-- header -->
-    
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><img alt="Brand Logo" src="img/logo3.png"></a>
+                <a class="navbar-brand" href="#"><img alt="Brand Logo" src="res/img/logo3.png"></a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="index.html">Home</a></li>
+                    <li class="active"><a href="index.jsp">Home</a></li>
                     <li><a href="#">Products</a></li>
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Recipes<span class="caret"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="recipes.html">Recipes<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Meat</a></li>
-                            <li><a href="#">Fish</a></li>
-                            <li><a href="#">Vegetarian</a></li>
-                            <li><a href="#">Deserts</a></li>
+                            <li><a href="recipes.html">Meat</a></li>
+                            <li><a href="recipes.html">Fish</a></li>
+                            <li><a href="recipes.html">Vegetarian</a></li>
+                            <li><a href="recipes.html">Deserts</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Add new recipe</a></li>
+                    <li><a href="add-recipe.html">Add new recipe</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> &nbsp Sign Up</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> &nbsp Login</a></li>
+                    <li><a href="sign-up.html"><span class="glyphicon glyphicon-user"></span> &nbsp Sign Up</a></li>
+                    <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> &nbsp Login</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-
-    <!-- search bar -->
-    
-    <div class="container">
-        <div class="col-md-3"></div>
-        <div class="col-md-7">
-            <form action="/search" recipeMethod="post">
-                <div class="form-group row col-md-6">
-                    <input type="text" placeholder="find a recipe" name="phrase" class="form-control" />
-                </div>
-                <div class="form-group row col-md-4">
-                    <input type="text" placeholder="find ingredient" name="ingredient" class="form-control" />
-                </div>
-                <div class="form-group row col-md-2">
-                    <button type="submit" class="btn btn-classic">Search</button>
-                </div>
-            </form>
-        </div>
-        <div class="col-md-2"></div>
-    </div>
-
-
-
-    <!-- categories -->
-
-    <div class="container category">
-        <div class="btn-group btn-group-justified" role="group" aria-label="Recipes categories">
-            <div class="btn-group col-md-3" role="group">
-                <button type="button" class="btn category"> Meat </button>
-            </div>
-            <div class="btn-group col-md-3" role="group">
-                <button type="button" class="btn"> Fish </button>
-            </div>
-            <div class="btn-group col-md-3" role="group">
-                <button type="button" class="btn"> Vegetarian </button>
-            </div>
-            <div class="btn-group col-md-3" role="group">
-                <button type="button" class="btn"> Desserts </button>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- random recipes -->
-   
-    <div class="container ad">
-        <div class="media panel">
-            <div class="media-left media-middle">
-                <a href="#">
-                    <img class="media-object small-object" src="http://www.hamburgerhamlet.com/wp-content/uploads/2014/11/the-hamburger-hamlet-sherman-oaks-34.jpg" alt="no photo">
-                </a>
-            </div>
-            <div class="media-body">
-                <h4 class="media-heading">Middle aligned media</h4>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, hic fugiat id illo quod porro quam corporis sint quidem blanditiis quo quas reprehenderit officia! Quibusdam magni ipsa voluptas ullam molestiae.
-                <h3 class="price">
-                    50.000 zł
-                </h3>
-            </div>
-        </div>
-        <div class="media panel">
-            <div class="media-left media-middle">
-                <a href="#">
-                    <img class="media-object small-object" src="https://www.kingsford.com/wp-content/uploads/2014/11/kfd-hoetosteak-Steak_4_0323-1024x621.jpg" alt="no photo">
-                </a>
-            </div>
-            <div class="media-body">
-                <h4 class="media-heading">Middle aligned media</h4>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, hic fugiat id illo quod porro quam corporis sint quidem blanditiis quo quas reprehenderit officia! Quibusdam magni ipsa voluptas ullam molestiae.
-                <h3 class="price">
-                    50.000 zł
-                </h3>
-            </div>
-        </div>
-        <div class="media panel">
-            <div class="media-left media-middle">
-                <a href="#">
-                    <img class="media-object small-object" src="http://www.hamburgerhamlet.com/wp-content/uploads/2014/11/the-hamburger-hamlet-sherman-oaks-34.jpg" alt="no photo">
-                </a>
-            </div>
-            <div class="media-body">
-                <h4 class="media-heading">Middle aligned media</h4>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, hic fugiat id illo quod porro quam corporis sint quidem blanditiis quo quas reprehenderit officia! Quibusdam magni ipsa voluptas ullam molestiae.
-                <h3 class="price">
-                    50.000 zł
-                </h3>
-            </div>
-        </div>
-        <div class="media panel">
-            <div class="media-left media-middle">
-                <a href="#">
-                    <img class="media-object small-object" src="http://www.kraftcanada.com/-/media/kraft%20canada/recipes/620x423/c/chocolate-caramel-brownies-152180.jpg?db=web&h=423&w=620" alt="no photo">
-                </a>
-            </div>
-            <div class="media-body">
-                <h4 class="media-heading">Middle aligned media</h4>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, hic fugiat id illo quod porro quam corporis sint quidem blanditiis quo quas reprehenderit officia! Quibusdam magni ipsa voluptas ullam molestiae.
-                <h3 class="price">
-                    50.000 zł
-                </h3>
-            </div>
-        </div>
-        <div class="media panel">
-            <div class="media-left media-middle">
-                <a href="#">
-                    <img class="media-object small-object" src="https://www.kingsford.com/wp-content/uploads/2014/11/kfd-hoetosteak-Steak_4_0323-1024x621.jpg" alt="no photo">
-                </a>
-            </div>
-            <div class="media-body">
-                <h4 class="media-heading">Middle aligned media</h4>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, hic fugiat id illo quod porro quam corporis sint quidem blanditiis quo quas reprehenderit officia! Quibusdam magni ipsa voluptas ullam molestiae.
-                <h3 class="price">
-                    50.000 zł
-                </h3>
-            </div>
-        </div>
-    </div>
-
-
-
-  
-    <br><br><br><br><br><br><br> <br><br><br><br><br><br><br> <br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br> <br><br><br><br><br><br><br> <br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br> <br><br><br><br><br><br><br> <br><br><br><br><br>
-
-     
-
-    <!-- footer -->
-    <footer>
-        <div class="container footer form-inline">
-            <div class="col-md-3">
-                <a href="#"> Home </a>
-            </div>
-            <div class="col-md-3">
-                <a href="#">Products</a>
-            </div>
-            <div class="col-md-3">
-                <a href="#">Recipes</a>
-            </div>
-            <div class="col-md-3">
-                <a href="#">Contact</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
-</body>
-
-</html>
