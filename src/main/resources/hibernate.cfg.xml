@@ -12,5 +12,9 @@
 
         <property name="show_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
+        <mapping class="recipes.model.Author" />
+        <mapping class="recipes.model.Recipe" />
+        <mapping class="recipes.model.RecipePhoto" />
+        <mapping class="recipes.model.Reviews" />
     </session-factory>
 </hibernate-configuration>

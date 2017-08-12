@@ -63,7 +63,7 @@
 </div>
 <div class="container ad">
    <div class="col-md-8">
-    <form action="add-recipe" method="post">
+    <form action="add-recipe" recipeMethod="post">
         <div class="form-group">
             <label>Recipe name:</label>
             <input class="form-control" placeholder="what do you want to share with us?" name="recipe" type="text" required/>
@@ -73,12 +73,12 @@
             <input class="form-control" placeholder="list of ingredients" name="ingredients" type="text" required/>
         </div>
         <div class="form-group">
-            <label>Number of ingriedents:</label>
-            <input class="form-control" placeholder="number of ingredients" name="num-ingriedents" type="text" required/>
+            <label>Number of ingredents:</label>
+            <input class="form-control" placeholder="number of ingredients" name="num-ingredents" type="text" required/>
         </div>
         <div class="form-group">
             <label>Method:</label>
-            <textarea class="form-control" rows="6" placeholder="tell us how to make it..." name="method" type="text" required></textarea>
+            <textarea class="form-control" rows="6" placeholder="tell us how to make it..." name="recipeMethod" type="text" required></textarea>
         </div>
         <div class="form-group">
             <label>Cooked meal photo:</label>
@@ -90,7 +90,7 @@
        </form>
     </div>
         <div class="col-md-4">
-        <form action="add-recipe" method="post">
+        <form action="add-recipe" recipeMethod="post">
         <div class="form-group">
             <label>Category:</label>
             <input class="form-control" placeholder="meat/fish/vege/dessert?" name="foodcategory" type="text" required/>
@@ -105,11 +105,11 @@
         </div>
         <div class="form-group">
             <label>Servings:</label>
-            <input class="form-control" placeholder="how many servings?" name="servings" type="text" required/>
+            <input class="form-control" placeholder="how many servings?" name="servings" type="text"/>
         </div>
         <div class="form-group">
             <label>Nutrition:</label>
-            <input class="form-control" placeholder="nutrition per serving?" name="nutrition" type="text" required/>
+            <input class="form-control" placeholder="nutrition per serving?" name="nutrition" type="text"/>
         </div>
     </form>
     </div>

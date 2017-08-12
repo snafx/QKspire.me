@@ -1,4 +1,4 @@
-Funkcjonalnoœci:
+Funkcjonalnoï¿½ci:
 
 1. Dodawanie przepisow
 2. Przegladanie przepisow po kategorii
@@ -32,7 +32,7 @@ Recipe:
 	nutrition +
 	ingredients +
 	amount of ingr + 
-	method +
+	recipeMethod +
 	reviews
 
 Photo

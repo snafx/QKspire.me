@@ -63,7 +63,7 @@
     <div class="container">
         <div class="col-md-3"></div>
         <div class="col-md-7">
-            <form action="/search" method="post">
+            <form action="/search" recipeMethod="post">
                 <div class="form-group row col-md-6">
                     <input type="text" placeholder="find a recipe" name="phrase" class="form-control" />
                 </div>
@@ -112,7 +112,7 @@
             <div class="col-md-4">
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#ingredients">Ingredients</a></li>
-                    <li><a data-toggle="tab" href="#method">Method</a></li>
+                    <li><a data-toggle="tab" href="#recipeMethod">Method</a></li>
                     <li><a data-toggle="tab" href="#comments">Comments</a></li>
                 </ul>
                 <br>
@@ -190,7 +190,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="method" class="tab-pane fade">
+                    <div id="recipeMethod" class="tab-pane fade">
                         <h3>Method:</h3>
                         <ol>
                             <li>
