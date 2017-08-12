@@ -1,0 +1,57 @@
+Funkcjonalnoœci:
+
+1. Dodawanie przepisow
+2. Przegladanie przepisow po kategorii
+	Sortowanie po mieso/wege/ryba
+3. Wyszukiwanie po nazwie/tresci
+4. Widok przepisow (Strona przepisu)
+5. Strona logowania
+6. Strona rejestracji
+7. Index
+8. Kontakt html
+
+
+Strona uzytkownika - przegladanie swoich przepisow
+Wykorzystanie bazy danych + hibernate(mysql)
+Komentowanie przepisu
+
+
+(Logo) | Home | Recipes | Products		Sign In / Sign Up
+
+
+ENCJE
+
+Recipe:
+	title +
+	photo +
+	author
+	difficulty +
+	servings +
+	prep time +
+	date added
+	nutrition +
+	ingredients +
+	amount of ingr + 
+	method +
+	reviews
+
+Photo
+	id recipe
+	photo
+
+Category
+	id
+	name
+
+User
+	nickname
+	email
+	password
+	avatar
+	city name
+
+Comments
+	id recipe
+	id user
+	message
+	date	
