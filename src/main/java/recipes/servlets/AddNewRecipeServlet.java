@@ -5,13 +5,13 @@ import recipes.model.DIFFICULTY;
 import recipes.model.Recipe;
 import recipes.repository.RecipeRepository;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 
 public class AddNewRecipeServlet extends HttpServlet {
 
@@ -21,7 +21,7 @@ public class AddNewRecipeServlet extends HttpServlet {
         Integer authorId = 0;
         authorId = (Integer) req.getSession().getAttribute("authorId");
         if (authorId == null) {
-            resp.sendRedirect("login.html");
+            resp.sendRedirect("login.jsp");
         } else {
             String recipeTitle = "";
             String ingredient1;
@@ -30,12 +30,13 @@ public class AddNewRecipeServlet extends HttpServlet {
             CATEGORY category = null;
             DIFFICULTY difficulty = null;
             String preparationTime;
-            Integer nutrition;
+            BigDecimal nutrition = BigDecimal.ZERO;
 
             try {
                 recipeTitle = req.getParameter("recipeTitle");
                 category = CATEGORY.valueOf(req.getParameter("category"));
                 difficulty = DIFFICULTY.valueOf(req.getParameter("difficulty"));
+                nutrition = new BigDecimal(req.getParameter("nutrition"));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -43,7 +44,6 @@ public class AddNewRecipeServlet extends HttpServlet {
             recipeMethod = req.getParameter("recipeMethod");
             servings = req.getParameter("servings");
             preparationTime = req.getParameter("prepTime");
-            nutrition = new Integer(req.getParameter("nutrition"));
 
             if (isNotValid(recipeTitle, ingredient1, recipeMethod, servings, preparationTime, nutrition)) {
                 PrintWriter pw = resp.getWriter();
@@ -54,11 +54,12 @@ public class AddNewRecipeServlet extends HttpServlet {
 
             Recipe addRecipe = new Recipe(recipeTitle, category, difficulty, servings, preparationTime, nutrition, ingredient1, recipeMethod);
             RecipeRepository.persist(addRecipe, authorId);
-            resp.sendRedirect("recipes.jsp?category=" + addRecipe.getCategory());
+//            resp.sendRedirect("recipes.jsp?category=" + addRecipe.getCategory());
+            resp.sendRedirect("index.jsp");
         }
     }
 
-    private boolean isNotValid(String recipeTitle, String ingredient1, String recipeMethod, String servings, String preparationTime, Integer nutrition) {
-        return recipeTitle.isEmpty() || ingredient1.isEmpty() || recipeMethod.isEmpty() || servings.isEmpty() || preparationTime.isEmpty() || nutrition < 0;
+    private boolean isNotValid(String recipeTitle, String ingredient1, String recipeMethod, String servings, String preparationTime, BigDecimal nutrition) {
+        return recipeTitle.isEmpty() || ingredient1.isEmpty() || recipeMethod.isEmpty() || servings.isEmpty() || preparationTime.isEmpty() || nutrition.compareTo(BigDecimal.ZERO) == -1;
     }
 }

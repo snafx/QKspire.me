@@ -9,13 +9,13 @@ import java.util.List;
 public class DifficultyRepository {
 
     public static List<DifficultyDTO> findAll() {
-        List<DifficultyDTO> difficultyDTOList = new ArrayList<>();
-        difficultyDTOList.add(new DifficultyDTO("Super Easy", DIFFICULTY.SUPER_EASY));
-        difficultyDTOList.add(new DifficultyDTO("Not Too Tricky", DIFFICULTY.NOT_TOO_TRICKY));
-        difficultyDTOList.add(new DifficultyDTO("Medium Skills", DIFFICULTY.MEDIUM_SKILLS));
-        difficultyDTOList.add(new DifficultyDTO("Showing Off", DIFFICULTY.SHOWING_OFF));
-        difficultyDTOList.add(new DifficultyDTO("Gordon Ramsay Is My Apprentice!!", DIFFICULTY.GORDON_RAMSAY_IS_MY_APPPRENTICE));
-        return difficultyDTOList;
+        List<DifficultyDTO> difficultyList = new ArrayList<>();
+        difficultyList.add(new DifficultyDTO("Super Easy", DIFFICULTY.SUPER_EASY));
+        difficultyList.add(new DifficultyDTO("Not Too Tricky", DIFFICULTY.NOT_TOO_TRICKY));
+        difficultyList.add(new DifficultyDTO("Medium Skills", DIFFICULTY.MEDIUM_SKILLS));
+        difficultyList.add(new DifficultyDTO("Showing Off", DIFFICULTY.SHOWING_OFF));
+        difficultyList.add(new DifficultyDTO("Gordon Ramsay Is My Apprentice!!", DIFFICULTY.GORDON_RAMSAY_IS_MY_APPPRENTICE));
+        return difficultyList;
     }
 
     public static DifficultyDTO findByDifficulty(DIFFICULTY difficulty) {

@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="recipes.repository.*,java.util.List,recipes.model.*"%>
+<%@ page import="java.util.Optional" %>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,37 +25,10 @@
 
 <body>
     <!-- header -->
-    
+
     <nav class="navbar navbar-default">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#"><img alt="Brand Logo" src="res/img/logo3.png"></a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="index.jsp">Home</a></li>
-                    <li><a href="#">Products</a></li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="recipes.html">Recipes<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="recipes.html">Meat</a></li>
-                            <li><a href="recipes.html">Fish</a></li>
-                            <li><a href="recipes.html">Vegetarian</a></li>
-                            <li><a href="recipes.html">Deserts</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="add-recipe.jsp">Add new recipe</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="sign-up.html"><span class="glyphicon glyphicon-user"></span> &nbsp Sign Up</a></li>
-                    <li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> &nbsp Login</a></li>
-                </ul>
-            </div>
+            <c:import url="top-menu.jsp"/>
         </div>
     </nav>
 
@@ -64,7 +43,7 @@
 </div>
 <div class="container ad">
    <div class="col-md-5">
-    <form action="reg-new-user" recipeMethod="post">
+    <form action="reg-new-user" method="post">
         <div class="form-group">
             <label>Username</label>
             <input class="form-control" placeholder="username" name="username" type="text" required/>
@@ -79,7 +58,7 @@
         </div>
         <div class="form-group">
             <label>Location</label>
-            <input class="form-control" placeholder="location" name="location" type="text" required/>
+            <input class="form-control" placeholder="location" name="cityName" type="text" required/>
         </div>
         <div class="form-group">
                 <label>Profile photo</label>
@@ -113,7 +92,7 @@
                 <a href="products.html">Products</a>
             </div>
             <div class="col-md-3">
-                <a href="recipes.html">Recipes</a>
+                <a href="recipes.jsp">Recipes</a>
             </div>
             <div class="col-md-3">
                 <a href="contact.html">Contact</a>

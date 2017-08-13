@@ -1,6 +1,7 @@
 package recipes.model;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
@@ -19,7 +20,7 @@ public class Recipe {
     private String recipeTitle;
 
     @Lob
-    @Column(nullable = false, columnDefinition = "mediumblob")
+    @Column(columnDefinition = "mediumblob")
     private byte[] recipeImage;
 
     @Column(nullable = false)
@@ -37,15 +38,15 @@ public class Recipe {
     private String preparationTime;
 
     @Column (nullable = false)
-    private Integer nutrition;
+    private BigDecimal nutrition;
 
     @Column(nullable = false)
     private String ingredient1;
 
-    @Column(nullable = false)
+    @Column
     private String ingredient2;
 
-    @Column(nullable = false)
+    @Column
     private String ingredient3;
 
     @Column
@@ -80,7 +81,7 @@ public class Recipe {
     public Recipe() {
     }
 
-    public Recipe(Author recipeAuthor, String recipeTitle, byte[] recipeImage, CATEGORY category, DIFFICULTY difficulty, String servings, String preparationTime, Integer nutrition, String ingredient1, String ingredient2, String ingredient3, String ingredient4, String ingredient5, String ingredient6, String ingredient7, String ingredient8, LocalDate dateAdded, String recipeMethod, String reviews, Boolean isActive) {
+    public Recipe(Author recipeAuthor, String recipeTitle, byte[] recipeImage, CATEGORY category, DIFFICULTY difficulty, String servings, String preparationTime, BigDecimal nutrition, String ingredient1, String ingredient2, String ingredient3, String ingredient4, String ingredient5, String ingredient6, String ingredient7, String ingredient8, LocalDate dateAdded, String recipeMethod, String reviews, Boolean isActive) {
         this.recipeAuthor = recipeAuthor;
         this.recipeTitle = recipeTitle;
         this.recipeImage = recipeImage;
@@ -103,7 +104,7 @@ public class Recipe {
         this.isActive = isActive;
     }
 
-    public Recipe(String recipeTitle, CATEGORY category, DIFFICULTY difficulty, String servings, String preparationTime, Integer nutrition, String ingredient1, String recipeMethod) {
+    public Recipe(String recipeTitle, CATEGORY category, DIFFICULTY difficulty, String servings, String preparationTime, BigDecimal nutrition, String ingredient1, String recipeMethod) {
         this.recipeTitle = recipeTitle;
         this.category = category;
         this.difficulty = difficulty;
@@ -179,11 +180,11 @@ public class Recipe {
         this.preparationTime = preparationTime;
     }
 
-    public Integer getNutrition() {
+    public BigDecimal getNutrition() {
         return nutrition;
     }
 
-    public void setNutrition(Integer nutrition) {
+    public void setNutrition(BigDecimal nutrition) {
         this.nutrition = nutrition;
     }
 

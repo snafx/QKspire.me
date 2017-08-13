@@ -7,28 +7,39 @@
 <display-name>QKspire.me</display-name>
 
     <servlet>
-        <servlet-name>LoginServlet</servlet-name>
+        <servlet-name>loginServlet</servlet-name>
         <servlet-class>recipes.servlets.LoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>LoginServlet</servlet-name>
+        <servlet-name>loginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
+
     <servlet>
-        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-name>logoutServlet</servlet-name>
         <servlet-class>recipes.servlets.LogoutServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-name>logoutServlet</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
+
     <servlet>
-        <servlet-name>AddNewRecipeServlet</servlet-name>
+        <servlet-name>addNewRecipeServlet</servlet-name>
         <servlet-class>recipes.servlets.AddNewRecipeServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>AddNewRecipeServlet</servlet-name>
+        <servlet-name>addNewRecipeServlet</servlet-name>
         <url-pattern>/add-new-recipe</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>signUpUserServlet</servlet-name>
+        <servlet-class>recipes.servlets.SignUpUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>signUpUserServlet</servlet-name>
+        <url-pattern>/reg-new-user</url-pattern>
     </servlet-mapping>
 
 

@@ -1,3 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="recipes.repository.*,java.util.List,recipes.model.*"%>
+
+<%
+    String categoryParam = request.getParameter("category");
+    CATEGORY category = CATEGORY.valueOf(categoryParam);
+    String categoryName = CategoryRepository.findByCategory(category).getName();
+    pageContext.setAttribute("category", category);
+    pageContext.setAttribute("categoryName", categoryName);
+%>
+
+<c:set value="${RecipeRepository.findByCategory(category)}" var="recipeList"/>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,34 +40,7 @@
 
     <nav class="navbar navbar-default">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#"><img alt="Brand Logo" src="res/img/logo3.png"></a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="index.jsp">Home</a></li>
-                    <li><a href="#">Products</a></li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Recipes<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Meat</a></li>
-                            <li><a href="#">Fish</a></li>
-                            <li><a href="#">Vegetarian</a></li>
-                            <li><a href="#">Deserts</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Add new recipe</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="sign-up.html"><span class="glyphicon glyphicon-user"></span> &nbsp Sign Up</a></li>
-                    <li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> &nbsp Login</a></li>
-                </ul>
-            </div>
+            <c:import url="top-menu.jsp"/>
         </div>
     </nav>
 
@@ -63,7 +52,7 @@
     <div class="container">
         <div class="col-md-3"></div>
         <div class="col-md-7">
-            <form action="/search" recipeMethod="post">
+            <form action="search" method="post">
                 <div class="form-group row col-md-6">
                     <input type="text" placeholder="find a recipe" name="phrase" class="form-control" />
                 </div>
@@ -103,35 +92,19 @@
     <!-- recipes list -->
 
     <div class="container ad">
+        <c:forEach items="${recipeList}" var="recipe">
         <div class="row recipes-list">
             <div class="recipe-thumb col-md-4 panel">
-                <a class="recipe-img-link" href="recipe.html">
+                <a class="recipe-img-link" href="recipe.jsp?recipeId=${recipe.id}">
                     <img class="media-object img-responsive center-block" src="http://www.hamburgerhamlet.com/wp-content/uploads/2014/11/the-hamburger-hamlet-sherman-oaks-34.jpg" alt="no photo"></a>
 
                 <div class="recipe-title">
-                    <h2><a class="recipe-link">Lorem Ipsum Dolor Sit</a></h2>
+                    <h2><a href="recipe.jsp?recipeId=${recipe.id}" class="recipe-link">${recipe.recipeTitle}</a></h2>
                     <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ex natus quos esse est.</h6>
                 </div>
             </div>
-            <div class="recipe-thumb col-md-4 panel">
-                <a class="recipe-img-link" href="recipe.html">
-                    <img class="media-object img-responsive center-block" src="http://www.hamburgerhamlet.com/wp-content/uploads/2014/11/the-hamburger-hamlet-sherman-oaks-34.jpg" alt="no photo"></a>
-
-                <div class="recipe-title">
-                    <h2><a class="recipe-link">Lorem Ipsum Dolor Sit</a></h2>
-                    <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h6>
-                </div>
-            </div>
-            <div class="recipe-thumb col-md-4 panel">
-                <a class="recipe-img-link" href="recipe.html">
-                    <img class="media-object img-responsive center-block" src="http://www.hamburgerhamlet.com/wp-content/uploads/2014/11/the-hamburger-hamlet-sherman-oaks-34.jpg" alt="no photo"></a>
-
-                <div class="recipe-title">
-                    <h2><a class="recipe-link">Lorem Ipsum Dolor Sit</a></h2>
-                    <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ex natus quos esse est eligendi dignissimos aut harum expedita illum.</h6>
-                </div>
-            </div>
         </div>
+        </c:forEach>
         <div class="row recipes-list">
             <div class="recipe-thumb col-md-4 panel">
                 <a class="recipe-img-link" href="#">
@@ -177,7 +150,7 @@
                 <a href="products.html">Products</a>
             </div>
             <div class="col-md-3">
-                <a href="recipes.html">Recipes</a>
+                <a href="recipes.jsp">Recipes</a>
             </div>
             <div class="col-md-3">
                 <a href="contact.html">Contact</a>

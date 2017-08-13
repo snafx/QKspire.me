@@ -44,6 +44,25 @@ body {
     cursor: pointer;
 }
 
+.nav > li > li-top {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: #777;
+}
+li > a > top-nav-link {
+    cursor: default;
+}
+
+li > a > top-nav-link:hover {
+    cursor: default;
+    color: #777;
+}
+
+li > a > top-nav-link:focus {
+    cursor: default;
+    color: #777;
+}
+
 .panel:hover {
     background: #c3c3c3;
     transition: 0.5s;

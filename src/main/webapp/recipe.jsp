@@ -1,3 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="recipes.repository.*,java.util.List,recipes.model.*"%>
+<%@ page import="java.util.Optional" %>
+
+<%
+    Integer recipeId = Integer.valueOf(request.getParameter("recipeId"));
+    Optional<Recipe> recipe = RecipeRepository.findById(recipeId);
+    if (recipe.isPresent()) {
+        pageContext.setAttribute("recipe", recipe.get());
+    }
+%>
+
+<c:set value="${recipe}" var="recipe" />
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,34 +40,7 @@
 
     <nav class="navbar navbar-default">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#"><img alt="Brand Logo" src="res/img/logo3.png"></a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="index.jsp">Home</a></li>
-                    <li><a href="#">Products</a></li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Recipes<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Meat</a></li>
-                            <li><a href="#">Fish</a></li>
-                            <li><a href="#">Vegetarian</a></li>
-                            <li><a href="#">Deserts</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Add new recipe</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="sign-up.html"><span class="glyphicon glyphicon-user"></span> &nbsp Sign Up</a></li>
-                    <li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> &nbsp Login</a></li>
-                </ul>
-            </div>
+            <c:import url="top-menu.jsp"/>
         </div>
     </nav>
 
@@ -63,7 +52,7 @@
     <div class="container">
         <div class="col-md-3"></div>
         <div class="col-md-7">
-            <form action="/search" recipeMethod="post">
+            <form action="search" method="post">
                 <div class="form-group row col-md-6">
                     <input type="text" placeholder="find a recipe" name="phrase" class="form-control" />
                 </div>
@@ -82,22 +71,22 @@
 
     <!-- categories -->
 
-    <div class="container category">
-        <div class="btn-group btn-group-justified" role="group" aria-label="Recipes categories">
-            <div class="btn-group col-md-3" role="group">
-                <button type="button" class="btn category"> Meat </button>
-            </div>
-            <div class="btn-group col-md-3" role="group">
-                <button type="button" class="btn"> Fish </button>
-            </div>
-            <div class="btn-group col-md-3" role="group">
-                <button type="button" class="btn"> Vegetarian </button>
-            </div>
-            <div class="btn-group col-md-3" role="group">
-                <button type="button" class="btn"> Desserts </button>
-            </div>
-        </div>
-    </div>
+    <%--<div class="container category">--%>
+        <%--<div class="btn-group btn-group-justified" role="group" aria-label="Recipes categories">--%>
+            <%--<div class="btn-group col-md-3" role="group">--%>
+                <%--<button type="button" class="btn category"> Meat </button>--%>
+            <%--</div>--%>
+            <%--<div class="btn-group col-md-3" role="group">--%>
+                <%--<button type="button" class="btn"> Fish </button>--%>
+            <%--</div>--%>
+            <%--<div class="btn-group col-md-3" role="group">--%>
+                <%--<button type="button" class="btn"> Vegetarian </button>--%>
+            <%--</div>--%>
+            <%--<div class="btn-group col-md-3" role="group">--%>
+                <%--<button type="button" class="btn"> Desserts </button>--%>
+            <%--</div>--%>
+        <%--</div>--%>
+    <%--</div>--%>
 
 
     <!-- meal racipe -->
@@ -105,7 +94,7 @@
     <div class="container ad">
         <div>
             <div class="col-md-12">
-                <h2>Lorem ipsum dolor sit amet.</h2>
+                <h2>${recipe.recipeTitle}</h2>
                 <br>
             </div>
 
@@ -125,7 +114,7 @@
                                         <p><i class="fa fa-clock-o" aria-hidden="true"></i></p>
                                     </li>
                                     <li>COOKS IN</li>
-                                    <li>30-45 mins</li>
+                                    <li>${recipe.preparationTime} mins</li>
                                 </ul>
                             </div>
                             <div class="col-md-6">
@@ -134,7 +123,7 @@
                                         <p><i class="fa fa-tasks" aria-hidden="true"></i></p>
                                     </li>
                                     <li>DIFFICULTY</li>
-                                    <li>easy</li>
+                                    <li>${recipe.difficulty}</li>
                                 </ul>
                             </div>
                         </div>
@@ -147,7 +136,7 @@
                                     <li>
                                         SERVINGS
                                     </li>
-                                    <li>2-3</li>
+                                    <li>${recipe.servings}</li>
                                 </ul>
                             </div>
                             <div class="col-md-6">
@@ -158,7 +147,7 @@
                                     <li>
                                         NUTRITION
                                     </li>
-                                    <li>est. 666 calories</li>
+                                    <li>est. ${recipe.nutrition} calories</li>
                                 </ul>
                             </div>
                         </div>
@@ -178,7 +167,7 @@
                                     </div>
                                     <div class="col-md-9">
                                         <ul style="list-style-type: none">
-                                            <li>lorem ipsum</li>
+                                            <li>${recipe.ingredient1}</li>
                                             <li>lorem ipsum dolor</li>
                                             <li>lorem ipsum dolor</li>
                                             <li>lorem ipsum</li>
@@ -194,7 +183,7 @@
                         <h3>Method:</h3>
                         <ol>
                             <li>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam assumenda sunt, repudiandae sint amet esse quisquam. Ipsam enim laudantium quam veniam atque magni inventore esse illo, repellat, a numquam, beatae.</p>
+                                <p>${recipe.recipeMethod}</p>
                             </li>
                             <li>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam assumenda sunt, repudiandae sint amet esse quisquam. Ipsam enim laudantium quam veniam atque magni inventore esse illo, repellat, a numquam, beatae.</p>
@@ -259,7 +248,7 @@
                 <a href="products.html">Products</a>
             </div>
             <div class="col-md-3">
-                <a href="recipes.html">Recipes</a>
+                <a href="recipes.jsp">Recipes</a>
             </div>
             <div class="col-md-3">
                 <a href="contact.html">Contact</a>
