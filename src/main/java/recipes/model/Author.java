@@ -86,4 +86,12 @@ public class Author {
     public void setAvatar(byte[] avatar) {
         this.avatar = avatar;
     }
+
+    public Set<Recipe> getRecipes() {
+        return recipes;
+    }
+
+    public void setRecipes(Set<Recipe> recipes) {
+        this.recipes = recipes;
+    }
 }

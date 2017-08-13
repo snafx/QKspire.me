@@ -22,6 +22,14 @@
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AddNewRecipeServlet</servlet-name>
+        <servlet-class>recipes.servlets.AddNewRecipeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddNewRecipeServlet</servlet-name>
+        <url-pattern>/add-new-recipe</url-pattern>
+    </servlet-mapping>
 
 
 

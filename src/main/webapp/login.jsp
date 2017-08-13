@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="recipes.repository.*,java.util.List,recipes.model.*"%>
+<%@ page import="java.util.Optional" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,11 +48,11 @@
                             <li><a href="recipes.html">Deserts</a></li>
                         </ul>
                     </li>
-                    <li><a href="add-recipe.html">Add new recipe</a></li>
+                    <li><a href="add-recipe.jsp">Add new recipe</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="sign-up.html"><span class="glyphicon glyphicon-user"></span> &nbsp Sign Up</a></li>
-                    <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> &nbsp Login</a></li>
+                    <li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> &nbsp Login</a></li>
                 </ul>
             </div>
         </div>
@@ -58,13 +63,13 @@
 <!-- Log In -->
     <div class="container category">
         <div class="col-md-6">
-            <h2>Log In</h2>
+            <h2>User Log In</h2>
         </div>
 
     </div>
     <div class="container ad">
         <div class="col-md-5">
-            <form action="login" recipeMethod="post">
+            <form action="/login" recipeMethod="post">
                 <div class="form-group">
                     <label>E-mail</label>
                     <input class="form-control" placeholder="example@email.com" name="email" type="email" required/>

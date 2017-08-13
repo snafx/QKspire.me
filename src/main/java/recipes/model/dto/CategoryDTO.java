@@ -3,7 +3,6 @@ package recipes.model.dto;
 import recipes.model.CATEGORY;
 
 public class CategoryDTO {
-
     String name;
     CATEGORY category;
 

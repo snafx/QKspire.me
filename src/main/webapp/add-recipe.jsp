@@ -1,3 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="recipes.repository.*,java.util.List,recipes.model.*"%>
+<%@ page import="recipes.model.dto.CategoryDTO" %>
+<%@ page import="recipes.model.dto.DifficultyDTO" %>
+
+
+<%
+    List<CategoryDTO> categoryList = CategoryRepository.findAll();
+    pageContext.setAttribute("categoryList", categoryList);
+
+    List<DifficultyDTO> difficultyList = DifficultyRepository.findAll();
+    pageContext.setAttribute("difficultyList", difficultyList);
+
+    Integer authorId = (Integer) request.getSession().getAttribute("authorId");
+    if (authorId == null) {
+    response.sendRedirect("login.jsp");
+    }
+
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,11 +64,11 @@
                             <li><a href="recipes.html">Deserts</a></li>
                         </ul>
                     </li>
-                    <li><a href="add-recipe.html">Add new recipe</a></li>
+                    <li><a href="add-recipe.jsp">Add new recipe</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="sign-up.html"><span class="glyphicon glyphicon-user"></span> &nbsp Sign Up</a></li>
-                    <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> &nbsp Login</a></li>
+                    <li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> &nbsp Login</a></li>
                 </ul>
             </div>
         </div>
@@ -63,18 +84,14 @@
 </div>
 <div class="container ad">
    <div class="col-md-8">
-    <form action="add-recipe" recipeMethod="post">
+    <form action="/add-new-recipe" recipeMethod="post">
         <div class="form-group">
             <label>Recipe name:</label>
-            <input class="form-control" placeholder="what do you want to share with us?" name="recipe" type="text" required/>
+            <input class="form-control" placeholder="what do you want to share with us?" name="recipeTitle" type="text" required/>
         </div>
         <div class="form-group">
             <label>Ingredients:</label>
-            <input class="form-control" placeholder="list of ingredients" name="ingredients" type="text" required/>
-        </div>
-        <div class="form-group">
-            <label>Number of ingredents:</label>
-            <input class="form-control" placeholder="number of ingredients" name="num-ingredents" type="text" required/>
+            <input class="form-control" placeholder="list of ingredients" name="ingredient1" type="text" required/>
         </div>
         <div class="form-group">
             <label>Method:</label>
@@ -93,15 +110,23 @@
         <form action="add-recipe" recipeMethod="post">
         <div class="form-group">
             <label>Category:</label>
-            <input class="form-control" placeholder="meat/fish/vege/dessert?" name="foodcategory" type="text" required/>
+            <select name="category" class="form-control" required>
+                <c:forEach items="${categoryList}" var="categoryDTO">
+                    <option value="${categoryDTO.category}">${categoryDTO.name}</option>
+                </c:forEach>
+            </select>
         </div>
         <div class="form-group">
             <label>Difficulty:</label>
-            <input class="form-control" placeholder="difficulty level (1-5)?" name="difficulty" type="text" required/>
+            <select name="difficulty" class="form-control" required>
+                <c:forEach items="${difficultyList}" var="difficultyDTO">
+                    <option value="${difficultyDTO.difficulty}">${difficultyDTO}</option>
+                </c:forEach>
+            </select>
         </div>
         <div class="form-group">
             <label>Preparation time:</label>
-            <input class="form-control" placeholder="time to make?" name="preparationTime" type="text" required/>
+            <input class="form-control" placeholder="time to make?" name="prepTime" type="text" required/>
         </div>
         <div class="form-group">
             <label>Servings:</label>
@@ -109,7 +134,7 @@
         </div>
         <div class="form-group">
             <label>Nutrition:</label>
-            <input class="form-control" placeholder="nutrition per serving?" name="nutrition" type="text"/>
+            <input class="form-control" placeholder="nutrition per serving (in kcal)?" name="nutrition" type="number"/>
         </div>
     </form>
     </div>

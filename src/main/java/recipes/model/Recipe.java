@@ -2,7 +2,6 @@ package recipes.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Set;
 
 @Entity
 public class Recipe {
@@ -78,11 +77,10 @@ public class Recipe {
 
 
 
-
     public Recipe() {
     }
 
-    public Recipe(Author recipeAuthor, String recipeTitle, byte[] recipeImage, CATEGORY category, DIFFICULTY difficulty, String servings, String preparationTime, Integer nutrition, String ingredient1, String ingredient2, String ingredient3, LocalDate dateAdded, String recipeMethod) {
+    public Recipe(Author recipeAuthor, String recipeTitle, byte[] recipeImage, CATEGORY category, DIFFICULTY difficulty, String servings, String preparationTime, Integer nutrition, String ingredient1, String ingredient2, String ingredient3, String ingredient4, String ingredient5, String ingredient6, String ingredient7, String ingredient8, LocalDate dateAdded, String recipeMethod, String reviews, Boolean isActive) {
         this.recipeAuthor = recipeAuthor;
         this.recipeTitle = recipeTitle;
         this.recipeImage = recipeImage;
@@ -94,14 +92,27 @@ public class Recipe {
         this.ingredient1 = ingredient1;
         this.ingredient2 = ingredient2;
         this.ingredient3 = ingredient3;
-        this.ingredient4 = null;
-        this.ingredient5 = null;
-        this.ingredient6 = null;
-        this.ingredient7 = null;
-        this.ingredient8 = null;
-        this.dateAdded = LocalDate.now();
+        this.ingredient4 = ingredient4;
+        this.ingredient5 = ingredient5;
+        this.ingredient6 = ingredient6;
+        this.ingredient7 = ingredient7;
+        this.ingredient8 = ingredient8;
+        this.dateAdded = dateAdded;
         this.recipeMethod = recipeMethod;
-        this.reviews = null;
+        this.reviews = reviews;
+        this.isActive = isActive;
+    }
+
+    public Recipe(String recipeTitle, CATEGORY category, DIFFICULTY difficulty, String servings, String preparationTime, Integer nutrition, String ingredient1, String recipeMethod) {
+        this.recipeTitle = recipeTitle;
+        this.category = category;
+        this.difficulty = difficulty;
+        this.servings = servings;
+        this.preparationTime = preparationTime;
+        this.nutrition = nutrition;
+        this.ingredient1 = ingredient1;
+        this.recipeMethod = recipeMethod;
+        this.dateAdded = LocalDate.now();
     }
 
     public Integer getId() {
