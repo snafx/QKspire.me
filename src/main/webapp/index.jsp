@@ -3,6 +3,10 @@
 <%@ page import="recipes.repository.*,java.util.List,recipes.model.*"%>
 <%@ page import="java.util.Optional" %>
 
+<%
+    pageContext.setAttribute("randomRecipeList", RecipeRepository.findRandomSixRecipes());
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +17,8 @@
     <meta name="author" content="snafx">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Raleway|Slabo+27px" rel="stylesheet" type="text/css">
-
+    <link rel="stylesheet" href="res/css/font-awesome.min.css">
+    <link rel="stylesheet" href="res/css/font-awesome.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -58,85 +63,48 @@
 
     <div class="container category">
         <div class="btn-group btn-group-justified" role="group" aria-label="Recipes categories">
-
-            <c:import url="category.jsp"/>
-
+            <div class="btn-group col-md-3" role="group">
+                <button type="button" class="btn category"><a href="recipes.jsp?category=MEAT"> Meat </a></button>
+            </div>
+            <div class="btn-group col-md-3" role="group">
+                <button type="button" class="btn"><a href="recipes.jsp?category=FISH"> Fish </a></button>
+            </div>
+            <div class="btn-group col-md-3" role="group">
+                <button type="button" class="btn"><a href="recipes.jsp?category=VEGETARIAN"> Vegetarian </a></button>
+            </div>
+            <div class="btn-group col-md-3" role="group">
+                <button type="button" class="btn"><a href="recipes.jsp?category=DESSERTS"> Desserts </a></button>
+            </div>
         </div>
     </div>
 
     <!-- random recipes -->
    
     <div class="container ad">
+        <c:forEach items="${randomRecipeList}" var="recipe">
         <div class="media panel">
             <div class="media-left media-middle">
-                <a href="#">
+                <a href="recipe.jsp?recipeId=${recipe.id}">
                     <img class="media-object small-object" src="http://www.hamburgerhamlet.com/wp-content/uploads/2014/11/the-hamburger-hamlet-sherman-oaks-34.jpg" alt="no photo">
                 </a>
             </div>
             <div class="media-body">
-                <h4 class="media-heading">Middle aligned media</h4>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, hic fugiat id illo quod porro quam corporis sint quidem blanditiis quo quas reprehenderit officia! Quibusdam magni ipsa voluptas ullam molestiae.
-                <h3 class="price">
-                    50.000 zł
-                </h3>
+                <h4 class="media-heading"><a href="recipe.jsp?recipeId=${recipe.id}">${recipe.recipeTitle}</a></h4>
+                <a href="recipe.jsp?recipeId=${recipe.id}">(Soon description) Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, hic fugiat id illo quod porro quam corporis sint quidem blanditiis quo quas reprehenderit officia! Quibusdam magni ipsa voluptas ullam molestiae.</a>
+                <h5 class="media-heading">
+                    <div class="col-md-2"><i class="fa-2 fa-clock-o"> ${recipe.preparationTime}</i></div>
+                    <div class="col-md-1"><i class="fa-2 fa-cutlery"> ${recipe.servings}</i></div>
+                    <div class="col-md-2"><i class="fa-2 fa-free-code-camp"> ${recipe.nutrition} kcal</i></div>
+                    <div class="col-md-7"><i class="fa-2 fa-tasks"> ${recipe.difficulty}</i></div>
+
+
+
+
+                </h5>
             </div>
         </div>
-        <div class="media panel">
-            <div class="media-left media-middle">
-                <a href="#">
-                    <img class="media-object small-object" src="https://www.kingsford.com/wp-content/uploads/2014/11/kfd-hoetosteak-Steak_4_0323-1024x621.jpg" alt="no photo">
-                </a>
-            </div>
-            <div class="media-body">
-                <h4 class="media-heading">Middle aligned media</h4>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, hic fugiat id illo quod porro quam corporis sint quidem blanditiis quo quas reprehenderit officia! Quibusdam magni ipsa voluptas ullam molestiae.
-                <h3 class="price">
-                    50.000 zł
-                </h3>
-            </div>
-        </div>
-        <div class="media panel">
-            <div class="media-left media-middle">
-                <a href="#">
-                    <img class="media-object small-object" src="http://www.hamburgerhamlet.com/wp-content/uploads/2014/11/the-hamburger-hamlet-sherman-oaks-34.jpg" alt="no photo">
-                </a>
-            </div>
-            <div class="media-body">
-                <h4 class="media-heading">Middle aligned media</h4>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, hic fugiat id illo quod porro quam corporis sint quidem blanditiis quo quas reprehenderit officia! Quibusdam magni ipsa voluptas ullam molestiae.
-                <h3 class="price">
-                    50.000 zł
-                </h3>
-            </div>
-        </div>
-        <div class="media panel">
-            <div class="media-left media-middle">
-                <a href="#">
-                    <img class="media-object small-object" src="http://www.kraftcanada.com/-/media/kraft%20canada/recipes/620x423/c/chocolate-caramel-brownies-152180.jpg?db=web&h=423&w=620" alt="no photo">
-                </a>
-            </div>
-            <div class="media-body">
-                <h4 class="media-heading">Middle aligned media</h4>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, hic fugiat id illo quod porro quam corporis sint quidem blanditiis quo quas reprehenderit officia! Quibusdam magni ipsa voluptas ullam molestiae.
-                <h3 class="price">
-                    50.000 zł
-                </h3>
-            </div>
-        </div>
-        <div class="media panel">
-            <div class="media-left media-middle">
-                <a href="#">
-                    <img class="media-object small-object" src="https://www.kingsford.com/wp-content/uploads/2014/11/kfd-hoetosteak-Steak_4_0323-1024x621.jpg" alt="no photo">
-                </a>
-            </div>
-            <div class="media-body">
-                <h4 class="media-heading">Middle aligned media</h4>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, hic fugiat id illo quod porro quam corporis sint quidem blanditiis quo quas reprehenderit officia! Quibusdam magni ipsa voluptas ullam molestiae.
-                <h3 class="price">
-                    50.000 zł
-                </h3>
-            </div>
-        </div>
+
+        </c:forEach>
     </div>
 
 

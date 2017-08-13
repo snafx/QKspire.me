@@ -89,56 +89,25 @@
     </div>
 
     <br><br><br>
+
     <!-- recipes list -->
 
     <div class="container ad">
-        <c:forEach items="${recipeList}" var="recipe">
         <div class="row recipes-list">
-            <div class="recipe-thumb col-md-4 panel">
-                <a class="recipe-img-link" href="recipe.jsp?recipeId=${recipe.id}">
-                    <img class="media-object img-responsive center-block" src="http://www.hamburgerhamlet.com/wp-content/uploads/2014/11/the-hamburger-hamlet-sherman-oaks-34.jpg" alt="no photo"></a>
-
-                <div class="recipe-title">
-                    <h2><a href="recipe.jsp?recipeId=${recipe.id}" class="recipe-link">${recipe.recipeTitle}</a></h2>
-                    <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ex natus quos esse est.</h6>
+            <c:forEach items="${recipeList}" var="recipe">
+                <div class="recipe-thumb col-md-4 panel">
+                    <a class="recipe-img-link" href="recipe.jsp?recipeId=${recipe.id}">
+                        <img class="media-object img-responsive center-block" src="http://www.hamburgerhamlet.com/wp-content/uploads/2014/11/the-hamburger-hamlet-sherman-oaks-34.jpg" alt="no photo"></a>
+                    <div class="recipe-title">
+                        <h2><a href="recipe.jsp?recipeId=${recipe.id}" class="recipe-link">${recipe.recipeTitle}</a></h2>
+                        <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ex natus quos esse est.</h6>
+                    </div>
                 </div>
-            </div>
-        </div>
-        </c:forEach>
-        <div class="row recipes-list">
-            <div class="recipe-thumb col-md-4 panel">
-                <a class="recipe-img-link" href="#">
-                    <img class="media-object img-responsive center-block" src="http://www.hamburgerhamlet.com/wp-content/uploads/2014/11/the-hamburger-hamlet-sherman-oaks-34.jpg" alt="no photo"></a>
-
-                <div class="recipe-title">
-                    <h2><a class="recipe-link">Lorem Ipsum Dolor Sit</a></h2>
-                    <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ex natus quos esse est.</h6>
-                </div>
-            </div>
-            <div class="recipe-thumb col-md-4 panel">
-                <a class="recipe-img-link" href="#">
-                    <img class="media-object img-responsive center-block" src="http://www.hamburgerhamlet.com/wp-content/uploads/2014/11/the-hamburger-hamlet-sherman-oaks-34.jpg" alt="no photo"></a>
-
-                <div class="recipe-title">
-                    <h2><a class="recipe-link">Lorem Ipsum Dolor Sit</a></h2>
-                    <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ex natus quos esse est eligendi dignissimos aut harum expedita illum.</h6>
-                </div>
-            </div>
-            <div class="recipe-thumb col-md-4 panel">
-                <a class="recipe-img-link" href="#">
-                    <img class="media-object img-responsive center-block" src="http://www.hamburgerhamlet.com/wp-content/uploads/2014/11/the-hamburger-hamlet-sherman-oaks-34.jpg" alt="no photo"></a>
-
-                <div class="recipe-title">
-                    <h2><a class="recipe-link">Lorem Ipsum Dolor Sit</a></h2>
-                    <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h6>
-                </div>
-            </div>
+            </c:forEach>
         </div>
     </div> 
 
-
     <br><br><br><br><br><br><br> 
-
 
     <!-- footer -->
     <footer>

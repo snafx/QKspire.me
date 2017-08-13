@@ -25,6 +25,16 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.fa-2 {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: 16px;
+    color: #0f346c;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 
 /* makes the font 33% larger relative to the icon container */
 
