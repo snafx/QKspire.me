@@ -52,18 +52,15 @@
 
 
     <!-- search bar -->
-    
+
     <div class="container">
-        <div class="col-md-3"></div>
-        <div class="col-md-7">
+        <div class="col-md-4"></div>
+        <div class="col-md-6">
             <form action="search" method="post">
-                <div class="form-group row col-md-6">
+                <div class="form-group row col-md-8">
                     <input type="text" placeholder="find a recipe" name="phrase" class="form-control" />
                 </div>
                 <div class="form-group row col-md-4">
-                    <input type="text" placeholder="find ingredient" name="ingredient" class="form-control" />
-                </div>
-                <div class="form-group row col-md-2">
                     <button type="submit" class="btn btn-classic">Search</button>
                 </div>
             </form>

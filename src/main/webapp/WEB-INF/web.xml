@@ -42,6 +42,15 @@
         <url-pattern>/reg-new-user</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>searchRecipeServlet</servlet-name>
+        <servlet-class>recipes.servlets.SearchRecipeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>searchRecipeServlet</servlet-name>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+
 
 
 </web-app>

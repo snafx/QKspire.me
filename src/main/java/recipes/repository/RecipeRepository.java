@@ -94,6 +94,25 @@ public class RecipeRepository {
         }
     }
 
+    //search recipe by searched phrase
+    public static List<Recipe> findByPhrase(String phrase) {
+        Session session = null;
+        try {
+            session = HibernateUtil.openSession();
+            String hql = "SELECT e FROM Recipe e WHERE UPPER(e.recipeTitle) "
+                    + "LIKE :phrase OR UPPER(e.recipeMethod) LIKE :phrase ORDER BY e.id DESC";
+            Query query = session.createQuery(hql);
+            query.setParameter("phrase", "%" + phrase.toUpperCase() + "%");
+            return query.getResultList();
+        } catch (Exception ex) {
+            logger.error(ex);
+            session.getTransaction().rollback();
+            return Collections.emptyList();
+        } finally {
+            session.close();
+        }
+    }
+
     public static List<Recipe> findByCategory(CATEGORY category) {
         Session session = null;
         try {

@@ -1,17 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import="recipes.repository.*,java.util.List,recipes.model.*"%>
+<%@ page import="recipes.repository.*,recipes.model.*"%>
+<%@ page import="java.util.*" %>
 
 <%
-    String categoryParam = request.getParameter("category");
-    CATEGORY category = CATEGORY.valueOf(categoryParam);
-    String categoryName = CategoryRepository.findByCategory(category).getName();
-    pageContext.setAttribute("category", category);
-    pageContext.setAttribute("categoryName", categoryName);
+    String phrase = request.getParameter("phrase");
+    if (phrase.isEmpty()) {
+        pageContext.setAttribute("WARNING", "Please fill searched phrase!");
+    } else {
+        List<Recipe> recipes = RecipeRepository.findByPhrase(phrase);
+        pageContext.setAttribute("searchedRecipe", recipes);
+    }
 %>
-
-<c:set value="${RecipeRepository.findByCategory(category)}" var="recipeList"/>
-
 
 
 <!DOCTYPE html>
@@ -48,7 +48,7 @@
 
 
     <!-- search bar -->
-
+    
     <div class="container">
         <div class="col-md-4"></div>
         <div class="col-md-6">
@@ -83,13 +83,12 @@
         </div>
     </div>
 
-    <br><br><br>
-
-    <!-- recipes list -->
+    <!-- search results recipes list -->
 
     <div class="container ad">
+        ${WARNING}
         <div class="row recipes-list">
-            <c:forEach items="${recipeList}" var="recipe">
+            <c:forEach items="${searchedRecipe}" var="recipe">
                 <div class="recipe-thumb col-md-4 panel">
                     <a class="recipe-img-link" href="recipe.jsp?recipeId=${recipe.id}">
                         <img class="media-object img-responsive center-block" src="http://www.hamburgerhamlet.com/wp-content/uploads/2014/11/the-hamburger-hamlet-sherman-oaks-34.jpg" alt="no photo"></a>
@@ -100,31 +99,32 @@
                 </div>
             </c:forEach>
         </div>
-    </div> 
+    </div>
 
-    <br><br><br><br><br><br><br> 
+
+    <br><br><br><br><br><br><br> <br><br><br><br><br><br><br> <br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br> <br><br><br><br><br><br><br> <br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br> <br><br><br><br><br><br><br> <br><br><br><br><br>
+
 
     <!-- footer -->
     <footer>
         <div class="container footer form-inline">
             <div class="col-md-3">
-                <a href="index.jsp"> Home </a>
+                <a href="#"> Home </a>
             </div>
             <div class="col-md-3">
-                <a href="products.html">Products</a>
+                <a href="#">Products</a>
             </div>
             <div class="col-md-3">
-                <a href="recipes.jsp">Recipes</a>
+                <a href="#">Recipes</a>
             </div>
             <div class="col-md-3">
-                <a href="contact.html">Contact</a>
+                <a href="#">Contact</a>
             </div>
         </div>
     </footer>
 
-    <!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
 </body>
-
 </html>
