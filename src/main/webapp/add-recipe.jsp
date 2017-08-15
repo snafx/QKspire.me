@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="res/css/style2.css">
 
@@ -50,6 +51,7 @@
     <br><br><br><br><br>
 
 <!-- add new recipe form -->
+
   <div class="container category">
     <div class="col-md-6">
         <h2>Add new recipe:</h2>
@@ -60,7 +62,11 @@
    <div class="col-md-8">
         <div class="form-group">
             <label>Recipe name:</label>
-            <input class="form-control" placeholder="what do you want to share with us?" name="recipeTitle" type="text" required/>
+            <input class="form-control" placeholder="what do you want to share with us?" name="recipeTitle" type="text" maxlength="69" required/>
+        </div>
+        <div class="form-group">
+           <label>Short recipe description:</label>
+           <input class="form-control" placeholder="what is it?" name="recipeDesc" type="text" maxlength="255" required/>
         </div>
         <div class="form-group">
             <label>Ingredients:</label>
@@ -68,12 +74,16 @@
         </div>
         <div class="form-group">
             <label>Method:</label>
-            <textarea class="form-control" rows="6" placeholder="tell us how to make it..." name="recipeMethod" type="text" required></textarea>
+            <textarea class="form-control" rows="6" placeholder="tell us how to make it..." name="recipeMethod" type="text" maxlength="999" required></textarea>
         </div>
         <div class="form-group">
-            <label>Cooked meal photo:</label>
-            <input type="file" name="recipe-image" accept="res/img/recipes/*"/>
+           <label>Recipe photo link:</label>
+           <input class="form-control" placeholder="enter link to recipe photo (http://...)" name="photoLink" type="text" required/>
         </div>
+        <%--<div class="form-group">--%>
+            <%--<label>Cooked meal photo:</label>--%>
+            <%--<input type="file" name="recipe-image" accept="res/img/recipes/*"/>--%>
+        <%--</div>--%>
     </div>
     <div class="col-md-4">
     <div class="form-group">
@@ -94,11 +104,11 @@
         </div>
         <div class="form-group">
             <label>Preparation time:</label>
-            <input class="form-control" placeholder="time to make?" name="prepTime" type="text" required/>
+            <input class="form-control" placeholder="time to make?" name="prepTime" type="text" maxlength="10" required/>
         </div>
         <div class="form-group">
             <label>Servings:</label>
-            <input class="form-control" placeholder="how many servings?" name="servings" type="text"/>
+            <input class="form-control" placeholder="how many servings?" name="servings" type="text" maxlength="10"/>
         </div>
         <div class="form-group">
             <label>Nutrition:</label>

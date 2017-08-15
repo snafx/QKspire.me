@@ -31,6 +31,8 @@ public class AddNewRecipeServlet extends HttpServlet {
             DIFFICULTY difficulty = null;
             String preparationTime;
             BigDecimal nutrition = BigDecimal.ZERO;
+            String recipeDescription;
+            String recipePhotoLink;
 
             try {
                 recipeTitle = req.getParameter("recipeTitle");
@@ -44,22 +46,24 @@ public class AddNewRecipeServlet extends HttpServlet {
             recipeMethod = req.getParameter("recipeMethod");
             servings = req.getParameter("servings");
             preparationTime = req.getParameter("prepTime");
+            recipeDescription = req.getParameter("recipeDesc");
+            recipePhotoLink = req.getParameter("photoLink");
 
-            if (isNotValid(recipeTitle, ingredient1, recipeMethod, servings, preparationTime, nutrition)) {
+            if (isNotValid(recipeTitle, ingredient1, recipeMethod, servings, preparationTime, nutrition, recipeDescription, recipePhotoLink)) {
                 PrintWriter pw = resp.getWriter();
                 pw.write("error"); //TODO create better error log
             }
 
 
 
-            Recipe addRecipe = new Recipe(recipeTitle, category, difficulty, servings, preparationTime, nutrition, ingredient1, recipeMethod);
+            Recipe addRecipe = new Recipe(recipeTitle, category, difficulty, servings, preparationTime, nutrition, ingredient1, recipeMethod, recipeDescription, recipePhotoLink);
             RecipeRepository.persist(addRecipe, authorId);
 //            resp.sendRedirect("recipes.jsp?category=" + addRecipe.getCategory());
             resp.sendRedirect("index.jsp");
         }
     }
 
-    private boolean isNotValid(String recipeTitle, String ingredient1, String recipeMethod, String servings, String preparationTime, BigDecimal nutrition) {
-        return recipeTitle.isEmpty() || ingredient1.isEmpty() || recipeMethod.isEmpty() || servings.isEmpty() || preparationTime.isEmpty() || nutrition.compareTo(BigDecimal.ZERO) == -1;
+    private boolean isNotValid(String recipeTitle, String ingredient1, String recipeMethod, String servings, String preparationTime, BigDecimal nutrition, String recipeDescription, String recipePhotoLink) {
+        return recipeTitle.isEmpty() || ingredient1.isEmpty() || recipeMethod.isEmpty() || servings.isEmpty() || preparationTime.isEmpty() || nutrition.compareTo(BigDecimal.ZERO) == -1 || recipeDescription.isEmpty() || recipePhotoLink.isEmpty();
     }
 }

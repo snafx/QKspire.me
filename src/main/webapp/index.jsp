@@ -29,11 +29,11 @@
     <meta name="author" content="snafx">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Raleway|Slabo+27px" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="res/css/font-awesome.min.css">
-    <link rel="stylesheet" href="res/css/font-awesome.css">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="res/css/style.css">
 
@@ -94,12 +94,12 @@
         <div class="media panel">
             <div class="media-left media-middle">
                 <a href="recipe.jsp?recipeId=${recipe.id}">
-                    <img class="media-object small-object" src="http://www.hamburgerhamlet.com/wp-content/uploads/2014/11/the-hamburger-hamlet-sherman-oaks-34.jpg" alt="no photo">
+                    <img class="media-object small-object" src="${recipe.recipePhotoLink}" alt="no photo">
                 </a>
             </div>
             <div class="media-body">
                 <h4 class="media-heading"><a href="recipe.jsp?recipeId=${recipe.id}">${recipe.recipeTitle}</a></h4>
-                <a href="recipe.jsp?recipeId=${recipe.id}">(Soon description) Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, hic fugiat id illo quod porro quam corporis sint quidem blanditiis quo quas reprehenderit officia! Quibusdam magni ipsa voluptas ullam molestiae.</a>
+                <a href="recipe.jsp?recipeId=${recipe.id}">${recipe.recipeDescription}</a>
                 <h5 class="media-heading">
                     <div class="col-md-2"><i class="fa-2 fa-clock-o"> ${recipe.preparationTime} min</i></div>
                     <div class="col-md-1"><i class="fa-2 fa-cutlery"> ${recipe.servings}</i></div>

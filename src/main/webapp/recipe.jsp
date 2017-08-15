@@ -29,12 +29,11 @@
     <meta name="author" content="snafx">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Raleway|Slabo+27px" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="res/css/font-awesome.min.css">
-    <link rel="stylesheet" href="res/css/font-awesome.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="res/css/style2.css">
 
@@ -75,6 +74,7 @@
         <div>
             <div class="col-md-12">
                 <h2>${recipe.recipeTitle}</h2>
+                <h6>by ${recipe.recipeAuthor.username} ${recipe.dateAdded}</h6>
                 <br>
             </div>
 
@@ -193,17 +193,12 @@
                 </div>
             </div>
 
-
-
-
             <div class="col-md-8">
                 <div class="col-md-12">
-                    <img class="media-object img-responsive center-block" src="http://www.hamburgerhamlet.com/wp-content/uploads/2014/11/the-hamburger-hamlet-sherman-oaks-34.jpg" alt="no photo">
-                </div>
-                <div class="col-md-12">
-                    <div clas="panel panel-default">
-                        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat laboriosam accusamus quam, deleniti unde quis numquam illum temporibus, dolor ut nostrum alias provident facilis ipsam recusandae dolores maiores pariatur aspernatur!
-                        </div>
+                    <div class="well well-sm">
+                    <img class="media-object img-responsive center-block" src="${recipe.recipePhotoLink}" alt="no recipe photo">
+                    <div><br></div>
+                    ${recipe.recipeDescription}
                     </div>
                 </div>
             </div>

@@ -76,6 +76,12 @@ public class Recipe {
     @Column
     private Boolean isActive;
 
+    @Column(nullable = false, length = 255)
+    private String recipeDescription;
+
+    @Column(nullable = false, length = 1000)
+    private String recipePhotoLink;
+
 
 
     public Recipe() {
@@ -104,7 +110,7 @@ public class Recipe {
         this.isActive = isActive;
     }
 
-    public Recipe(String recipeTitle, CATEGORY category, DIFFICULTY difficulty, String servings, String preparationTime, BigDecimal nutrition, String ingredient1, String recipeMethod) {
+    public Recipe(String recipeTitle, CATEGORY category, DIFFICULTY difficulty, String servings, String preparationTime, BigDecimal nutrition, String ingredient1, String recipeMethod, String recipeDescription, String recipePhotoLink) {
         this.recipeTitle = recipeTitle;
         this.category = category;
         this.difficulty = difficulty;
@@ -114,6 +120,8 @@ public class Recipe {
         this.ingredient1 = ingredient1;
         this.recipeMethod = recipeMethod;
         this.dateAdded = LocalDate.now();
+        this.recipeDescription = recipeDescription;
+        this.recipePhotoLink = recipePhotoLink;
     }
 
     public Integer getId() {
@@ -282,5 +290,21 @@ public class Recipe {
 
     public void setIsActive(Boolean isActive) {
         this.isActive = isActive;
+    }
+
+    public String getRecipeDescription() {
+        return recipeDescription;
+    }
+
+    public void setRecipeDescription(String recipeDescription) {
+        this.recipeDescription = recipeDescription;
+    }
+
+    public String getRecipePhotoLink() {
+        return recipePhotoLink;
+    }
+
+    public void setRecipePhotoLink(String recipeLink) {
+        this.recipePhotoLink = recipeLink;
     }
 }

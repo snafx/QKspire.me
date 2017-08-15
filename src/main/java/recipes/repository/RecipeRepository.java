@@ -13,8 +13,6 @@ import java.util.Optional;
 
 public class RecipeRepository {
 
-    //TODO search bar and random recipe List on index page
-
     final static Logger logger = Logger.getLogger(AuthorRepository.class);
 
     //add recipe method

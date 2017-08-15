@@ -24,12 +24,11 @@
     <meta name="author" content="snafx">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Raleway|Slabo+27px" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="res/css/font-awesome.min.css">
-    <link rel="stylesheet" href="res/css/font-awesome.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="res/css/style2.css">
 
@@ -91,10 +90,10 @@
             <c:forEach items="${searchedRecipe}" var="recipe">
                 <div class="recipe-thumb col-md-4 panel">
                     <a class="recipe-img-link" href="recipe.jsp?recipeId=${recipe.id}">
-                        <img class="media-object img-responsive center-block" src="http://www.hamburgerhamlet.com/wp-content/uploads/2014/11/the-hamburger-hamlet-sherman-oaks-34.jpg" alt="no photo"></a>
+                        <img class="media-object img-responsive center-block" src="${recipe.recipePhotoLink}" alt="no photo"></a>
                     <div class="recipe-title">
                         <h2><a href="recipe.jsp?recipeId=${recipe.id}" class="recipe-link">${recipe.recipeTitle}</a></h2>
-                        <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ex natus quos esse est.</h6>
+                        <h6>${recipe.recipeDescription}</h6>
                     </div>
                 </div>
             </c:forEach>
