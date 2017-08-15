@@ -1,11 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import="recipes.repository.*,java.util.List,recipes.model.*"%>
-<%@ page import="java.util.Optional" %>
+<%@ page import="recipes.repository.*,recipes.model.*"%>
+<%@ page import="java.util.*" %>
 
 <%
-    pageContext.setAttribute("randomRecipeList", RecipeRepository.findRandomSixRecipes());
+    List<Recipe> recipeList = RecipeRepository.findRandomSixRecipes();
+    pageContext.setAttribute("randomRecipeList", recipeList);
+//    int id = 0;
+//    for (int i = 0; i < recipeList.size(); i++) {
+//        id = recipeList.get(i).getId();
+//    }
+//    DIFFICULTY difficulty = recipeList.get(id).getDifficulty();
+//    String diffName = DifficultyRepository.findByDifficulty(difficulty).getName();
+//    pageContext.setAttribute("difficultyName", diffName);
+
 %>
+
+<%--<c:set value="${difficultyName}" var="recipeDiff"/>--%>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -92,18 +104,13 @@
                 <h4 class="media-heading"><a href="recipe.jsp?recipeId=${recipe.id}">${recipe.recipeTitle}</a></h4>
                 <a href="recipe.jsp?recipeId=${recipe.id}">(Soon description) Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, hic fugiat id illo quod porro quam corporis sint quidem blanditiis quo quas reprehenderit officia! Quibusdam magni ipsa voluptas ullam molestiae.</a>
                 <h5 class="media-heading">
-                    <div class="col-md-2"><i class="fa-2 fa-clock-o"> ${recipe.preparationTime}</i></div>
+                    <div class="col-md-2"><i class="fa-2 fa-clock-o"> ${recipe.preparationTime} min</i></div>
                     <div class="col-md-1"><i class="fa-2 fa-cutlery"> ${recipe.servings}</i></div>
                     <div class="col-md-2"><i class="fa-2 fa-free-code-camp"> ${recipe.nutrition} kcal</i></div>
                     <div class="col-md-7"><i class="fa-2 fa-tasks"> ${recipe.difficulty}</i></div>
-
-
-
-
                 </h5>
             </div>
         </div>
-
         </c:forEach>
     </div>
 

@@ -9,9 +9,14 @@
     if (recipe.isPresent()) {
         pageContext.setAttribute("recipe", recipe.get());
     }
+
+    DIFFICULTY difficulty = recipe.get().getDifficulty();
+    String diffName = DifficultyRepository.findByDifficulty(difficulty).getName();
+    pageContext.setAttribute("difficultyName", diffName);
 %>
 
 <c:set value="${recipe}" var="recipe" />
+<c:set value="${difficultyName}" var="recipeDiff"/>
 
 
 <!DOCTYPE html>
@@ -102,7 +107,7 @@
                                         <p><i class="fa fa-tasks" aria-hidden="true"></i></p>
                                     </li>
                                     <li>DIFFICULTY</li>
-                                    <li>${recipe.difficulty}</li>
+                                    <li>${recipeDiff}</li>
                                 </ul>
                             </div>
                         </div>
