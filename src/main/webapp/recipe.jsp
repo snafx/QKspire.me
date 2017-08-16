@@ -135,26 +135,18 @@
                             <div class="col-md-12">
                                 <h4>Ingredients:</h4>
                                 <div>
-                                    <div class="col-md-3">
                                         <ul>
-                                            <li>2</li>
-                                            <li>150g</li>
-                                            <li>5</li>
-                                            <li>400ml</li>
-                                            <li>3</li>
-                                            <li>100g</li>
+                                            <c:if test="${!recipe.ingredient1.equals('')}"><li>${recipe.ingredient1}</li></c:if>
+                                            <c:if test="${!recipe.ingredient2.equals('')}"><li>${recipe.ingredient2}</li></c:if>
+                                            <c:if test="${!recipe.ingredient3.equals('')}"><li>${recipe.ingredient3}</li></c:if>
+                                            <c:if test="${!recipe.ingredient4.equals('')}"><li>${recipe.ingredient4}</li></c:if>
+                                            <c:if test="${!recipe.ingredient5.equals('')}"><li>${recipe.ingredient5}</li></c:if>
+                                            <c:if test="${!recipe.ingredient6.equals('')}"><li>${recipe.ingredient6}</li></c:if>
+                                            <c:if test="${!recipe.ingredient7.equals('')}"><li>${recipe.ingredient7}</li></c:if>
+                                            <c:if test="${!recipe.ingredient8.equals('')}"><li>${recipe.ingredient8}</li></c:if>
+                                            <c:if test="${!recipe.ingredient9.equals('')}"><li>${recipe.ingredient9}</li></c:if>
+                                            <c:if test="${!recipe.ingredient10.equals('')}"><li>${recipe.ingredient10}</li></c:if>
                                         </ul>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <ul style="list-style-type: none">
-                                            <li>${recipe.ingredient1}</li>
-                                            <li>lorem ipsum dolor</li>
-                                            <li>lorem ipsum dolor</li>
-                                            <li>lorem ipsum</li>
-                                            <li>lorem ipsum dolor met</li>
-                                            <li>lorem ipsum dolor met</li>
-                                        </ul>
-                                    </div>
                                 </div>
                             </div>
                         </div>

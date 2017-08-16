@@ -1,5 +1,6 @@
 package recipes.servlets;
 
+import com.sun.org.apache.regexp.internal.RE;
 import recipes.model.CATEGORY;
 import recipes.model.DIFFICULTY;
 import recipes.model.Recipe;
@@ -33,6 +34,15 @@ public class AddNewRecipeServlet extends HttpServlet {
             BigDecimal nutrition = BigDecimal.ZERO;
             String recipeDescription;
             String recipePhotoLink;
+            String ingredient2;
+            String ingredient3;
+            String ingredient4;
+            String ingredient5;
+            String ingredient6;
+            String ingredient7;
+            String ingredient8;
+            String ingredient9;
+            String ingredient10;
 
             try {
                 recipeTitle = req.getParameter("recipeTitle");
@@ -48,16 +58,25 @@ public class AddNewRecipeServlet extends HttpServlet {
             preparationTime = req.getParameter("prepTime");
             recipeDescription = req.getParameter("recipeDesc");
             recipePhotoLink = req.getParameter("photoLink");
+            ingredient2 = req.getParameter("ingredient2");
+            ingredient3 = req.getParameter("ingredient3");
+            ingredient4 = req.getParameter("ingredient4");
+            ingredient5 = req.getParameter("ingredient5");
+            ingredient6 = req.getParameter("ingredient6");
+            ingredient7 = req.getParameter("ingredient7");
+            ingredient8 = req.getParameter("ingredient8");
+            ingredient9 = req.getParameter("ingredient9");
+            ingredient10 = req.getParameter("ingredient10");
 
             if (isNotValid(recipeTitle, ingredient1, recipeMethod, servings, preparationTime, nutrition, recipeDescription, recipePhotoLink)) {
                 PrintWriter pw = resp.getWriter();
                 pw.write("error"); //TODO create better error log
             }
 
-
-
-            Recipe addRecipe = new Recipe(recipeTitle, category, difficulty, servings, preparationTime, nutrition, ingredient1, recipeMethod, recipeDescription, recipePhotoLink);
+            Recipe addRecipe = new Recipe(recipeTitle, category, difficulty, servings, preparationTime, nutrition, ingredient1, recipeMethod, recipeDescription, recipePhotoLink,
+                    ingredient2, ingredient3, ingredient4, ingredient5, ingredient6, ingredient7, ingredient8, ingredient9, ingredient10);
             RecipeRepository.persist(addRecipe, authorId);
+
 //            resp.sendRedirect("recipes.jsp?category=" + addRecipe.getCategory());
             resp.sendRedirect("index.jsp");
         }

@@ -7,9 +7,7 @@ import recipes.model.CATEGORY;
 import recipes.model.Recipe;
 
 import javax.persistence.Query;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class RecipeRepository {
 

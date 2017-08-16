@@ -75,6 +75,18 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.fa-5 {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: 8px;
+    color: red;
+    transform: translateY(-7px);
+    font-weight: 300;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 .small-object {
     max-width: 170px;
     max-height: 170px;

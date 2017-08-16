@@ -43,26 +43,32 @@ public class Recipe {
     @Column(nullable = false)
     private String ingredient1;
 
-    @Column
+    @Column(nullable = false)
     private String ingredient2;
 
-    @Column
+    @Column(nullable = false)
     private String ingredient3;
 
-    @Column
+    @Column(nullable = false)
     private String ingredient4;
 
-    @Column
+    @Column(nullable = false)
     private String ingredient5;
 
-    @Column
+    @Column(nullable = false)
     private String ingredient6;
 
-    @Column
+    @Column(nullable = false)
     private String ingredient7;
 
-    @Column
+    @Column(nullable = false)
     private String ingredient8;
+
+    @Column(nullable = false)
+    private String ingredient9;
+
+    @Column(nullable = false)
+    private String ingredient10;
 
     @Column
     private LocalDate dateAdded;
@@ -76,7 +82,7 @@ public class Recipe {
     @Column
     private Boolean isActive;
 
-    @Column(nullable = false, length = 255)
+    @Column(nullable = false, length = 300)
     private String recipeDescription;
 
     @Column(nullable = false, length = 1000)
@@ -87,30 +93,8 @@ public class Recipe {
     public Recipe() {
     }
 
-    public Recipe(Author recipeAuthor, String recipeTitle, byte[] recipeImage, CATEGORY category, DIFFICULTY difficulty, String servings, String preparationTime, BigDecimal nutrition, String ingredient1, String ingredient2, String ingredient3, String ingredient4, String ingredient5, String ingredient6, String ingredient7, String ingredient8, LocalDate dateAdded, String recipeMethod, String reviews, Boolean isActive) {
-        this.recipeAuthor = recipeAuthor;
-        this.recipeTitle = recipeTitle;
-        this.recipeImage = recipeImage;
-        this.category = category;
-        this.difficulty = difficulty;
-        this.servings = servings;
-        this.preparationTime = preparationTime;
-        this.nutrition = nutrition;
-        this.ingredient1 = ingredient1;
-        this.ingredient2 = ingredient2;
-        this.ingredient3 = ingredient3;
-        this.ingredient4 = ingredient4;
-        this.ingredient5 = ingredient5;
-        this.ingredient6 = ingredient6;
-        this.ingredient7 = ingredient7;
-        this.ingredient8 = ingredient8;
-        this.dateAdded = dateAdded;
-        this.recipeMethod = recipeMethod;
-        this.reviews = reviews;
-        this.isActive = isActive;
-    }
-
-    public Recipe(String recipeTitle, CATEGORY category, DIFFICULTY difficulty, String servings, String preparationTime, BigDecimal nutrition, String ingredient1, String recipeMethod, String recipeDescription, String recipePhotoLink) {
+    public Recipe(String recipeTitle, CATEGORY category, DIFFICULTY difficulty, String servings, String preparationTime, BigDecimal nutrition, String ingredient1, String recipeMethod, String recipeDescription, String recipePhotoLink,
+                  String ingredient2, String ingredient3, String ingredient4, String ingredient5, String ingredient6, String ingredient7, String ingredient8, String ingredient9, String ingredient10) {
         this.recipeTitle = recipeTitle;
         this.category = category;
         this.difficulty = difficulty;
@@ -122,7 +106,17 @@ public class Recipe {
         this.dateAdded = LocalDate.now();
         this.recipeDescription = recipeDescription;
         this.recipePhotoLink = recipePhotoLink;
+        this.ingredient2 = ingredient2;
+        this.ingredient3 = ingredient3;
+        this.ingredient4 = ingredient4;
+        this.ingredient5 = ingredient5;
+        this.ingredient6 = ingredient6;
+        this.ingredient7 = ingredient7;
+        this.ingredient8 = ingredient8;
+        this.ingredient9 = ingredient9;
+        this.ingredient10 = ingredient10;
     }
+
 
     public Integer getId() {
         return id;
@@ -258,6 +252,22 @@ public class Recipe {
 
     public void setIngredient8(String ingredient8) {
         this.ingredient8 = ingredient8;
+    }
+
+    public String getIngredient9() {
+        return ingredient9;
+    }
+
+    public void setIngredient9(String ingredient9) {
+        this.ingredient9 = ingredient9;
+    }
+
+    public String getIngredient10() {
+        return ingredient10;
+    }
+
+    public void setIngredient10(String ingredient10) {
+        this.ingredient10 = ingredient10;
     }
 
     public LocalDate getDateAdded() {

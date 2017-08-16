@@ -12,7 +12,7 @@ public class CategoryRepository {
         List<CategoryDTO> categories = new ArrayList<>();
         categories.add(new CategoryDTO("MEAT", CATEGORY.MEAT));
         categories.add(new CategoryDTO("FISH", CATEGORY.FISH));
-        categories.add(new CategoryDTO("VEGETERIAN", CATEGORY.VEGETARIAN));
+        categories.add(new CategoryDTO("VEGETARIAN", CATEGORY.VEGETARIAN));
         categories.add(new CategoryDTO("DESSERTS", CATEGORY.DESSERTS));
         return categories;
     }

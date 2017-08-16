@@ -8,9 +8,9 @@
 
 <c:forEach items="${categoryList}" var="categoryDTO">
     <div class="btn-group col-md-3" role="group">
-        <button type="button" class="btn category">
-            <a href="recipes.jsp?category=${categoryDTO.category}"> ${categoryDTO.name} </a>
-        </button>
+        <form action="category" method="post">
+            <input type="submit" class="btn category" name="action" value="${categoryDTO.name}">
+        </form>
     </div>
 </c:forEach>
 

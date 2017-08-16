@@ -67,18 +67,7 @@
 
     <div class="container category">
         <div class="btn-group btn-group-justified" role="group" aria-label="Recipes categories">
-            <div class="btn-group col-md-3" role="group">
-                <button type="button" class="btn category"> Meat </button>
-            </div>
-            <div class="btn-group col-md-3" role="group">
-                <button type="button" class="btn"> Fish </button>
-            </div>
-            <div class="btn-group col-md-3" role="group">
-                <button type="button" class="btn"> Vegetarian </button>
-            </div>
-            <div class="btn-group col-md-3" role="group">
-                <button type="button" class="btn"> Desserts </button>
-            </div>
+            <c:import url="category.jsp"/>
         </div>
     </div>
 
