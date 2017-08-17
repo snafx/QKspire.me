@@ -43,6 +43,10 @@ public class AddNewRecipeServlet extends HttpServlet {
             String ingredient8;
             String ingredient9;
             String ingredient10;
+            String recipeMethod2;
+            String recipeMethod3;
+            String recipeMethod4;
+            String recipeMethod5;
 
             try {
                 recipeTitle = req.getParameter("recipeTitle");
@@ -67,6 +71,10 @@ public class AddNewRecipeServlet extends HttpServlet {
             ingredient8 = req.getParameter("ingredient8");
             ingredient9 = req.getParameter("ingredient9");
             ingredient10 = req.getParameter("ingredient10");
+            recipeMethod2 = req.getParameter("recipeMethod2");
+            recipeMethod3 = req.getParameter("recipeMethod3");
+            recipeMethod4 = req.getParameter("recipeMethod4");
+            recipeMethod5 = req.getParameter("recipeMethod5");
 
             if (isNotValid(recipeTitle, ingredient1, recipeMethod, servings, preparationTime, nutrition, recipeDescription, recipePhotoLink)) {
                 PrintWriter pw = resp.getWriter();
@@ -74,7 +82,7 @@ public class AddNewRecipeServlet extends HttpServlet {
             }
 
             Recipe addRecipe = new Recipe(recipeTitle, category, difficulty, servings, preparationTime, nutrition, ingredient1, recipeMethod, recipeDescription, recipePhotoLink,
-                    ingredient2, ingredient3, ingredient4, ingredient5, ingredient6, ingredient7, ingredient8, ingredient9, ingredient10);
+                    ingredient2, ingredient3, ingredient4, ingredient5, ingredient6, ingredient7, ingredient8, ingredient9, ingredient10, recipeMethod2, recipeMethod3, recipeMethod4, recipeMethod5);
             RecipeRepository.persist(addRecipe, authorId);
 
 //            resp.sendRedirect("recipes.jsp?category=" + addRecipe.getCategory());

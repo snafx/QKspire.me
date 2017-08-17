@@ -87,6 +87,10 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+textarea {
+    resize: none;
+}
+
 .small-object {
     max-width: 170px;
     max-height: 170px;
@@ -134,9 +138,6 @@ body {
     color: black;
 }
 
-textarea[name=directions] {
-    resize: none;
-}
 
 .avatar {
     max-height: 100px;

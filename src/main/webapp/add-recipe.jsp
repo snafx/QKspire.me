@@ -37,6 +37,9 @@
 
     <link rel="stylesheet" href="res/css/style2.css">
 
+    <script src="http://code.jquery.com/jquery-1.5.js"></script>
+    <script src="res/function.js"></script>
+
 </head>
 
 <body>
@@ -99,16 +102,44 @@
        </div>
        <div class="form-group">
            <label>Method:</label>&nbsp<i class="fa-5 fa-asterisk" aria-hidden="true"></i>
-           <textarea class="form-control" rows="6" placeholder="tell us how to make it..." name="recipeMethod" type="text" maxlength="999" required></textarea>
+           <textarea class="form-control" onkeydown="countChar(this)" rows="6" placeholder="tell us how to make it..." name="recipeMethod" type="text" maxlength="1000" required></textarea>
+           <div class="col-sm-12">
+               <div class="col-md-11"></div>
+               <div class="col-md-1" id="charNum">0/1000</div>
+           </div>
        </div>
        <div class="form-group">
-           <label>Recipe photo link:</label>&nbsp<i class="fa-5 fa-asterisk" aria-hidden="true"></i>
-           <input class="form-control" placeholder="enter link to recipe photo (http://...)" name="photoLink" type="text" required/>
+           <label>Method:</label>
+           <textarea class="form-control" onkeydown="countChar2(this)" rows="6" placeholder="if you need more space..." name="recipeMethod2" type="text" maxlength="1000"></textarea>
+           <div class="col-sm-12">
+               <div class="col-md-11"></div>
+               <div class="col-md-1" id="charNum2">0/1000</div>
+           </div>
        </div>
-        <%--<div class="form-group">--%>
-            <%--<label>Cooked meal photo:</label>--%>
-            <%--<input type="file" name="recipe-image" accept="res/img/recipes/*"/>--%>
-        <%--</div>--%>
+       <div class="form-group">
+           <label>Method:</label>
+           <textarea class="form-control" onkeydown="countChar3(this)" rows="6" placeholder="and more..." name="recipeMethod3" type="text" maxlength="1000"></textarea>
+           <div class="col-sm-12">
+               <div class="col-md-11"></div>
+               <div class="col-md-1" id="charNum3">0/1000</div>
+           </div>
+       </div>
+       <div class="form-group">
+           <label>Method:</label>
+           <textarea class="form-control" onkeydown="countChar4(this)" rows="6" placeholder="and more..." name="recipeMethod4" type="text" maxlength="1000"></textarea>
+           <div class="col-sm-12">
+               <div class="col-md-11"></div>
+               <div class="col-md-1" id="charNum4">0/1000</div>
+           </div>
+       </div>
+       <div class="form-group">
+           <label>Method:</label>
+           <textarea class="form-control" onkeydown="countChar5(this)" rows="6" placeholder="and more..." name="recipeMethod5" type="text" maxlength="1000"></textarea>
+           <div class="col-sm-12">
+               <div class="col-md-11"></div>
+               <div class="col-md-1" id="charNum5">0/1000</div>
+           </div>
+       </div>
     </div>
     <div class="col-md-4">
         <div class="form-group">
@@ -142,6 +173,14 @@
         <div><label></label>
             <input class="form-control" placeholder="ingredient 10" name="ingredient10" type="text" />
         </div>
+        <div class="form-group">
+            <label>Recipe photo link:</label>&nbsp<i class="fa-5 fa-asterisk" aria-hidden="true"></i>
+            <input class="form-control" placeholder="enter link to recipe photo (http://...)" name="photoLink" type="text" required/>
+        </div>
+        <%--<div class="form-group">--%>
+        <%--<label>Cooked meal photo:</label>--%>
+        <%--<input type="file" name="recipe-image" accept="res/img/recipes/*"/>--%>
+        <%--</div>--%>
     </div>
     <div class="col-md-12">
         <div class="form-group">

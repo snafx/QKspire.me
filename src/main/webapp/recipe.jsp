@@ -154,15 +154,11 @@
                     <div id="recipeMethod" class="tab-pane fade">
                         <h3>Method:</h3>
                         <ol>
-                            <li>
-                                <p>${recipe.recipeMethod}</p>
-                            </li>
-                            <li>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam assumenda sunt, repudiandae sint amet esse quisquam. Ipsam enim laudantium quam veniam atque magni inventore esse illo, repellat, a numquam, beatae.</p>
-                            </li>
-                            <li>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam assumenda sunt, repudiandae sint amet esse quisquam. Ipsam enim laudantium quam veniam atque magni inventore esse illo, repellat, a numquam, beatae.</p>
-                            </li>
+                            <c:if test="${!recipe.recipeMethod.equals('')}"><li><p>${recipe.recipeMethod}</p></li></c:if>
+                            <c:if test="${!recipe.recipeMethod2.equals('')}"><li><p>${recipe.recipeMethod2}</p></li></c:if>
+                            <c:if test="${!recipe.recipeMethod3.equals('')}"><li><p>${recipe.recipeMethod3}</p></li></c:if>
+                            <c:if test="${!recipe.recipeMethod4.equals('')}"><li><p>${recipe.recipeMethod4}</p></li></c:if>
+                            <c:if test="${!recipe.recipeMethod5.equals('')}"><li><p>${recipe.recipeMethod5}</p></li></c:if>
                         </ol>
                     </div>
                     <div id="comments" class="tab-pane fade">

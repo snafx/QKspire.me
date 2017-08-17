@@ -88,13 +88,26 @@ public class Recipe {
     @Column(nullable = false, length = 1000)
     private String recipePhotoLink;
 
+    @Column(nullable = false, length = 1000)
+    private String recipeMethod2;
+
+    @Column(nullable = false, length = 1000)
+    private String recipeMethod3;
+
+    @Column(nullable = false, length = 1000)
+    private String recipeMethod4;
+
+    @Column(nullable = false, length = 1000)
+    private String recipeMethod5;
+
 
 
     public Recipe() {
     }
 
     public Recipe(String recipeTitle, CATEGORY category, DIFFICULTY difficulty, String servings, String preparationTime, BigDecimal nutrition, String ingredient1, String recipeMethod, String recipeDescription, String recipePhotoLink,
-                  String ingredient2, String ingredient3, String ingredient4, String ingredient5, String ingredient6, String ingredient7, String ingredient8, String ingredient9, String ingredient10) {
+                  String ingredient2, String ingredient3, String ingredient4, String ingredient5, String ingredient6, String ingredient7, String ingredient8, String ingredient9, String ingredient10,
+                  String recipeMethod2, String recipeMethod3, String recipeMethod4, String recipeMethod5) {
         this.recipeTitle = recipeTitle;
         this.category = category;
         this.difficulty = difficulty;
@@ -115,6 +128,10 @@ public class Recipe {
         this.ingredient8 = ingredient8;
         this.ingredient9 = ingredient9;
         this.ingredient10 = ingredient10;
+        this.recipeMethod2 = recipeMethod2;
+        this.recipeMethod3 = recipeMethod3;
+        this.recipeMethod4 = recipeMethod4;
+        this.recipeMethod5 = recipeMethod5;
     }
 
 
@@ -284,6 +301,38 @@ public class Recipe {
 
     public void setRecipeMethod(String recipeMethod) {
         this.recipeMethod = recipeMethod;
+    }
+
+    public String getRecipeMethod2() {
+        return recipeMethod2;
+    }
+
+    public void setRecipeMethod2(String recipeMethod2) {
+        this.recipeMethod2 = recipeMethod2;
+    }
+
+    public String getRecipeMethod3() {
+        return recipeMethod3;
+    }
+
+    public void setRecipeMethod3(String recipeMethod3) {
+        this.recipeMethod3 = recipeMethod3;
+    }
+
+    public String getRecipeMethod4() {
+        return recipeMethod4;
+    }
+
+    public void setRecipeMethod4(String recipeMethod4) {
+        this.recipeMethod4 = recipeMethod4;
+    }
+
+    public String getRecipeMethod5() {
+        return recipeMethod5;
+    }
+
+    public void setRecipeMethod5(String recipeMethod5) {
+        this.recipeMethod5 = recipeMethod5;
     }
 
     public String getReviews() {

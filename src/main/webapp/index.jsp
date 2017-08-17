@@ -76,24 +76,6 @@
         </div>
     </div>
 
-
-    <%--<div class="container category">--%>
-        <%--<div class="btn-group btn-group-justified" role="group" aria-label="Recipes categories">--%>
-            <%--<div class="btn-group col-md-3" role="group">--%>
-                <%--<button type="button" class="btn category"><a href="recipes.jsp?category=MEAT"> Meat </a></button>--%>
-            <%--</div>--%>
-            <%--<div class="btn-group col-md-3" role="group">--%>
-                <%--<button type="button" class="btn"><a href="recipes.jsp?category=FISH"> Fish </a></button>--%>
-            <%--</div>--%>
-            <%--<div class="btn-group col-md-3" role="group">--%>
-                <%--<button type="button" class="btn"><a href="recipes.jsp?category=VEGETARIAN"> Vegetarian </a></button>--%>
-            <%--</div>--%>
-            <%--<div class="btn-group col-md-3" role="group">--%>
-                <%--<button type="button" class="btn"><a href="recipes.jsp?category=DESSERTS"> Desserts </a></button>--%>
-            <%--</div>--%>
-        <%--</div>--%>
-    <%--</div>--%>
-
     <!-- random recipes -->
    
     <div class="container ad">
