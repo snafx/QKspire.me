@@ -3,14 +3,19 @@
 <%@ page import="recipes.repository.*,java.util.List,recipes.model.*"%>
 
 <%
-    String categoryParam = request.getParameter("category");
-    CATEGORY category = CATEGORY.valueOf(categoryParam);
-    String categoryName = CategoryRepository.findByCategory(category).getName();
-    pageContext.setAttribute("category", category);
-    pageContext.setAttribute("categoryName", categoryName);
+
+
+    List<Recipe> allRecipeList = RecipeRepository.findAllRecipes();
+    pageContext.setAttribute("allRecipesList", allRecipeList);
+
+//    String categoryParam = request.getParameter("category");
+//    CATEGORY category = CATEGORY.valueOf(categoryParam);
+//    String categoryName = CategoryRepository.findByCategory(category).getName();
+//    pageContext.setAttribute("category", category);
+//    pageContext.setAttribute("categoryName", categoryName);
 %>
 
-<c:set value="${RecipeRepository.findByCategory(category)}" var="recipeList"/>
+<%--<c:set value="${RecipeRepository.findAllRecipes}" var="allRecipesList"/>--%>
 
 
 
@@ -73,11 +78,11 @@
 
     <br><br><br>
 
-    <!-- recipes list -->
+    <!-- all recipes list sorted by recipe ID desc -->
 
     <div class="container ad">
         <div class="row recipes-list">
-            <c:forEach items="${recipeList}" var="recipe">
+            <c:forEach items="${allRecipesList}" var="recipe">
                 <div class="recipe-thumb col-md-4 panel">
                     <a class="recipe-img-link" href="recipe.jsp?recipeId=${recipe.id}">
                         <img class="media-object img-responsive center-block" src="${recipe.recipePhotoLink}" alt="no photo"></a>

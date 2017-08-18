@@ -79,7 +79,7 @@
                 <a href="products.html">Products</a>
             </div>
             <div class="col-md-3">
-                <a href="recipes.jsp">Recipes</a>
+                <a href="recipes-all.jsp">All recipes</a>
             </div>
             <div class="col-md-3">
                 <a href="contact.html">Contact</a>

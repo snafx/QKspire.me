@@ -73,6 +73,22 @@ public class RecipeRepository {
         }
     }
 
+    public static  List<Recipe> findAllRecipes() {
+        Session session = null;
+        try {
+            session = HibernateUtil.openSession();
+            String hql = "SELECT e FROM Recipe e ORDER BY e.id DESC";
+            Query query = session.createQuery(hql);
+            return query.getResultList();
+        } catch (Exception ex) {
+            logger.error(ex);
+            session.getTransaction().rollback();
+            return Collections.emptyList();
+        } finally {
+            session.close();
+        }
+    }
+
     public static Optional<Recipe> findById(Integer id) {
         Session session = null;
         try {

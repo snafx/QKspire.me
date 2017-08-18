@@ -99,16 +99,16 @@
     <footer>
         <div class="container footer form-inline">
             <div class="col-md-3">
-                <a href="#"> Home </a>
+                <a href="index.jsp"> Home </a>
             </div>
             <div class="col-md-3">
-                <a href="#">Products</a>
+                <a href="products.html">Products</a>
             </div>
             <div class="col-md-3">
-                <a href="#">Recipes</a>
+                <a href="recipes-all.jsp">All recipes</a>
             </div>
             <div class="col-md-3">
-                <a href="#">Contact</a>
+                <a href="contact.html">Contact</a>
             </div>
         </div>
     </footer>

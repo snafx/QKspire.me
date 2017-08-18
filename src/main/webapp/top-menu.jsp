@@ -36,6 +36,7 @@
                         <li><a href="recipes.jsp?category=FISH">Fish</a></li>
                         <li><a href="recipes.jsp?category=VEGETARIAN">Vegetarian</a></li>
                         <li><a href="recipes.jsp?category=DESSERTS">Deserts</a></li>
+                        <li><a href="recipes-all.jsp">All Recipes</a></li>
                     </ul>
                 </li>
                 <li><a href="add-recipe.jsp">Add new recipe</a></li>
