@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import="recipes.repository.*,java.util.List,recipes.model.*"%>
-<%@ page import="java.util.Optional" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,6 +18,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="res/css/style2.css">
+    <style>
+        body {
+            background-image: url(res/img/qkstamp3.jpg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: center;
+        }
+    </style>
 
 </head>
 
@@ -32,17 +38,15 @@
         </div>
     </nav>
 
-    <br><br><br><br><br>
+    <br>
 
 <!-- Log In -->
-    <div class="container category">
-        <div class="col-md-6">
-            <h2>User Log In</h2>
-        </div>
 
-    </div>
     <div class="container ad">
+        <div class="col-md-7"></div>
         <div class="col-md-5">
+            <h2>Log In</h2>
+            <br>
             <form action="login" method="post">
                 <div class="form-group">
                     <label>E-mail</label>
@@ -59,17 +63,10 @@
         </div>
     </div>
 
-
-
-
-
-    <br><br><br><br><br><br><br><br><br><br>
-
-
-
-
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
     <!-- footer -->
+
     <footer>
         <div class="container footer form-inline">
             <div class="col-md-3">
@@ -87,8 +84,6 @@
         </div>
     </footer>
 
-    <!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
 </body>
 

@@ -3,10 +3,11 @@ package recipes.repository;
 import hibernate.util.HibernateUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
+import recipes.model.Author;
 import recipes.model.CATEGORY;
 import recipes.model.Recipe;
 
-import javax.persistence.Query;
 import java.util.*;
 
 public class RecipeRepository {
@@ -73,6 +74,7 @@ public class RecipeRepository {
         }
     }
 
+    //method to show all recipes in DB sorted by ID (descending)
     public static  List<Recipe> findAllRecipes() {
         Session session = null;
         try {
@@ -94,13 +96,31 @@ public class RecipeRepository {
         try {
             session = HibernateUtil.openSession();
             String hql = "SELECT e FROM Recipe e WHERE e.id=:id";
-            Query query = session.createQuery(hql);
+            Query<Recipe> query = session.createQuery(hql, Recipe.class);
             query.setParameter("id", id);
             return Optional.ofNullable((Recipe) query.getSingleResult());
         } catch (Exception ex) {
             logger.error(ex);
             session.getTransaction().rollback();
             return Optional.empty();
+        } finally {
+            session.close();
+        }
+    }
+
+    public static List<Recipe> findByAuthorId(Integer id) {
+        Session session = null;
+        try {
+            session = HibernateUtil.openSession();
+            Author recipeAuthor = AuthorRepository.findById(id).get();
+            String hql = "SELECT e FROM Recipe e WHERE e.recipeAuthor = :id";
+            Query<Recipe> query = session.createQuery(hql, Recipe.class);
+            query.setParameter("id", recipeAuthor);
+            return query.getResultList();
+        } catch (Exception ex) {
+            logger.error(ex);
+            session.getTransaction().rollback();
+            return Collections.emptyList();
         } finally {
             session.close();
         }

@@ -1,6 +1,5 @@
 package recipes.servlets;
 
-import com.sun.org.apache.regexp.internal.RE;
 import recipes.model.CATEGORY;
 import recipes.model.DIFFICULTY;
 import recipes.model.Recipe;

@@ -37,6 +37,7 @@
 
     <link rel="stylesheet" href="res/css/style2.css">
 
+
 </head>
 
 <body>
@@ -196,7 +197,7 @@
 
 
 
-    <br><br><br><br><br><br><br> <br><br><br><br><br><br><br> <br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br>
 
 
 

@@ -46,6 +46,7 @@
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Signed as ${loggedAuthor}<span class="caret"></span></a>
                         <ul class="dropdown-menu">
+                            <li><a href="your-recipes.jsp">Your Recipes</a></li>
                             <li><a href="logout">Sign Out</a></li>
                         </ul>
                     </li>

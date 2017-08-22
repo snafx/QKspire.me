@@ -21,6 +21,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="res/css/style2.css">
+    <style>
+        body {
+            background-image: url(res/img/qkstamp3.jpg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: center;
+        }
+    </style>
 
 </head>
 
@@ -33,17 +41,14 @@
         </div>
     </nav>
 
-    <br><br><br><br><br>
+    <br>
 
-  
-  <div class="container category">
-    <div class="col-md-6">
-        <h2>Registration form:</h2>
-    </div>
 
-</div>
 <div class="container ad">
-   <div class="col-md-5">
+    <div class="col-md-7"></div>
+    <div class="col-md-5">
+        <h2>Registration form:</h2>
+        <br>
     <form action="reg-new-user" method="post">
         <div class="form-group">
             <label>Username</label>
@@ -61,10 +66,10 @@
             <label>Location</label>
             <input class="form-control" placeholder="location" name="cityName" type="text" required/>
         </div>
-        <div class="form-group">
-                <label>Profile photo</label>
-                <input type="file" name="image" accept="res/img/*"/>
-        </div>
+        <%--<div class="form-group">--%>
+                <%--<label>Profile photo</label>--%>
+                <%--<input type="file" name="image" accept="res/img/*"/>--%>
+        <%--</div>--%>
         <div class="form-group">
             <button type="submit" class="btn btn-default">Sign Up!</button>
         </div>
@@ -77,7 +82,8 @@
 
 
 
-<br><br><br><br><br><br><br><br><br><br>
+    <%--<br><br><br><br><br><br><br><br><br><br>--%>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
    

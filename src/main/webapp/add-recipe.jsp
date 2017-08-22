@@ -174,6 +174,7 @@
             <input class="form-control" placeholder="ingredient 10" name="ingredient10" type="text" />
         </div>
         <div class="form-group">
+            <br>
             <label>Recipe photo link:</label>&nbsp<i class="fa-5 fa-asterisk" aria-hidden="true"></i>
             <input class="form-control" placeholder="enter link to recipe photo (http://...)" name="photoLink" type="text" required/>
         </div>
@@ -218,8 +219,6 @@
         </div>
     </footer>
 
-    <!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
 </body>
 

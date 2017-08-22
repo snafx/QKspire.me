@@ -4,19 +4,10 @@
 
 <%
 
-
     List<Recipe> allRecipeList = RecipeRepository.findAllRecipes();
     pageContext.setAttribute("allRecipesList", allRecipeList);
 
-//    String categoryParam = request.getParameter("category");
-//    CATEGORY category = CATEGORY.valueOf(categoryParam);
-//    String categoryName = CategoryRepository.findByCategory(category).getName();
-//    pageContext.setAttribute("category", category);
-//    pageContext.setAttribute("categoryName", categoryName);
 %>
-
-<%--<c:set value="${RecipeRepository.findAllRecipes}" var="allRecipesList"/>--%>
-
 
 
 <!DOCTYPE html>

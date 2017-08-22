@@ -6,18 +6,8 @@
 <%
     List<Recipe> recipeList = RecipeRepository.findRandomSixRecipes();
     pageContext.setAttribute("randomRecipeList", recipeList);
-//    int id = 0;
-//    for (int i = 0; i < recipeList.size(); i++) {
-//        id = recipeList.get(i).getId();
-//    }
-//    DIFFICULTY difficulty = recipeList.get(id).getDifficulty();
-//    String diffName = DifficultyRepository.findByDifficulty(difficulty).getName();
-//    pageContext.setAttribute("difficultyName", diffName);
 
 %>
-
-<%--<c:set value="${difficultyName}" var="recipeDiff"/>--%>
-
 
 <!DOCTYPE html>
 <html lang="en">
