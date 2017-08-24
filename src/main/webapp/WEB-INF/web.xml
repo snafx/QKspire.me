@@ -60,6 +60,15 @@
         <url-pattern>/category</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AddReviewServlet</servlet-name>
+        <servlet-class>recipes.servlets.AddReviewServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddReviewServlet</servlet-name>
+        <url-pattern>/add-review</url-pattern>
+    </servlet-mapping>
+
 
 
 </web-app>

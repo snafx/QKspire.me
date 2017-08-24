@@ -3,6 +3,7 @@ package recipes.model;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 public class Recipe {
@@ -77,9 +78,6 @@ public class Recipe {
     private String recipeMethod;
 
     @Column
-    private String reviews;
-
-    @Column
     private Boolean isActive;
 
     @Column(nullable = false, length = 300)
@@ -99,6 +97,9 @@ public class Recipe {
 
     @Column(nullable = false, length = 1000)
     private String recipeMethod5;
+
+    @OneToMany(mappedBy = "recipeId")
+    private Set<Reviews> reviews;
 
 
 
@@ -335,14 +336,6 @@ public class Recipe {
         this.recipeMethod5 = recipeMethod5;
     }
 
-    public String getReviews() {
-        return reviews;
-    }
-
-    public void setReviews(String reviews) {
-        this.reviews = reviews;
-    }
-
     public Boolean getIsActive() {
         return isActive;
     }
@@ -365,5 +358,13 @@ public class Recipe {
 
     public void setRecipePhotoLink(String recipeLink) {
         this.recipePhotoLink = recipeLink;
+    }
+
+    public Set<Reviews> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(Set<Reviews> reviews) {
+        this.reviews = reviews;
     }
 }

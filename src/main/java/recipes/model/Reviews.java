@@ -2,6 +2,7 @@ package recipes.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 public class Reviews {
@@ -11,16 +12,26 @@ public class Reviews {
     @Column(unique = true)
     private Integer id;
 
-    @Column
-    private Integer recipeId;
-
     @Column(nullable = false)
     private String text;
 
     @Column(nullable = false)
     private LocalDate datePosted;
 
+    @JoinColumn
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Recipe recipeId;
+
+    @JoinColumn
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Author reviewAuthor;
+
     public Reviews() {
+    }
+
+    public Reviews(String text) {
+        this.text = text;
+        this.datePosted = LocalDate.now();
     }
 
     public Integer getId() {
@@ -31,11 +42,11 @@ public class Reviews {
         this.id = id;
     }
 
-    public Integer getRecipeId() {
+    public Recipe getRecipeId() {
         return recipeId;
     }
 
-    public void setRecipeId(Integer recipeId) {
+    public void setRecipeId(Recipe recipeId) {
         this.recipeId = recipeId;
     }
 
@@ -53,5 +64,13 @@ public class Reviews {
 
     public void setDatePosted(LocalDate datePosted) {
         this.datePosted = datePosted;
+    }
+
+    public Author getReviewAuthor() {
+        return reviewAuthor;
+    }
+
+    public void setReviewAuthor(Author reviewAuthor) {
+        this.reviewAuthor = reviewAuthor;
     }
 }

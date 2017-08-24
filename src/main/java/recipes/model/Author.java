@@ -29,6 +29,9 @@ public class Author {
     @OneToMany(mappedBy = "recipeAuthor") //join with other column
     private Set<Recipe> recipes;
 
+    @OneToMany(mappedBy = "reviewAuthor")
+    private Set<Reviews> reviews;
+
     public Author() {
     }
 
@@ -93,5 +96,13 @@ public class Author {
 
     public void setRecipes(Set<Recipe> recipes) {
         this.recipes = recipes;
+    }
+
+    public Set<Reviews> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(Set<Reviews> reviews) {
+        this.reviews = reviews;
     }
 }
