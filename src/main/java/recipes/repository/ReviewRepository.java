@@ -38,7 +38,7 @@ public class ReviewRepository {
         try {
             session = HibernateUtil.openSession();
             Recipe recipeId = RecipeRepository.findById(id).get();
-            String hql = "SELECT e FROM Reviews e WHERE e.recipeId=:id";
+            String hql = "SELECT e FROM Reviews e WHERE e.recipeId=:id ORDER BY e.id DESC";
             Query<Reviews> query = session.createQuery(hql, Reviews.class);
             query.setParameter("id", recipeId);
             return query.getResultList();
