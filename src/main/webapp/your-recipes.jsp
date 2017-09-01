@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import="recipes.repository.*,java.util.List,recipes.model.*"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="recipes.repository.*,java.util.List,recipes.model.*" %>
 <%@ page import="java.util.Optional" %>
 
 <%
     Integer authorId = (Integer) request.getSession().getAttribute("authorId");
-    if(authorId == null) {
+    if (authorId == null) {
         response.sendRedirect("login.jsp");
     } else {
         Optional<Author> author = AuthorRepository.findById(authorId);
@@ -16,13 +16,20 @@
 
         List<Recipe> recipeList = RecipeRepository.findByAuthorId(authorId);
         if (recipeList.isEmpty()) {
-            pageContext.setAttribute("warning", "No recipes found");
+            pageContext.setAttribute("recipeWarning", "No recipes found");
         }
         pageContext.setAttribute("recipe", recipeList);
+
+        List<Reviews> reviewsList = ReviewRepository.findByAuthorId(authorId);
+        if (reviewsList.isEmpty()) {
+            pageContext.setAttribute("reviewWarning", "No reviews posted yet");
+        }
+        pageContext.setAttribute("review", reviewsList);
     }
 %>
 
-<c:set value="${recipe}" var="recipeList" />
+<c:set value="${recipe}" var="recipeList"/>
+<c:set value="${review}" var="reviewsList"/>
 
 
 <!DOCTYPE html>
@@ -34,7 +41,8 @@
     <meta name="description" content="QKspire.me - best recipes on the web">
     <meta name="author" content="snafx">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Raleway|Slabo+27px" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Raleway|Slabo+27px" rel="stylesheet"
+          type="text/css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -65,56 +73,85 @@
                 <img class="media-object img-responsive left-block" src="res/img/face.png" alt="no photo">
             </div>
             <h2>${loggedAuthor.username}</h2>
+            <hr>
             <h5>${loggedAuthor.cityName}</h5>
             <h5>${loggedAuthor.email}</h5>
         </div>
         <div class="col-md-9">
-            <h4>Your recipes:</h4>
-            <h3>${warning}</h3>
-            <c:forEach items="${recipeList}" var="recipe">
-            <div class="media panel">
-                <div class="media-left media-middle">
-                    <a href="recipe.jsp?recipeId=${recipe.id}">
-                        <img class="media-object small-object" src="${recipe.recipePhotoLink}" alt="no photo">
-                    </a>
-                </div>
-                <div class="media-body">
-                    <h4 class="media-heading"><a href="recipe.jsp?recipeId=${recipe.id}" class="recipe-link">${recipe.recipeTitle}</a></h4>
-                     <h5><a href="recipe.jsp?recipeId=${recipe.id}">${recipe.recipeDescription}</a></h5>
+            <div>
+                <h4>Your recipes:</h4>
+                <h3>${recipeWarning}</h3>
+                <c:forEach items="${recipeList}" var="recipe">
+                    <div class="media panel">
+                        <div class="media-left media-middle">
+                            <a href="recipe.jsp?recipeId=${recipe.id}">
+                                <img class="media-object small-object" src="${recipe.recipePhotoLink}" alt="no photo">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading"><a href="recipe.jsp?recipeId=${recipe.id}"
+                                                         class="recipe-link">${recipe.recipeTitle}</a></h4>
+                            <h5><a href="recipe.jsp?recipeId=${recipe.id}">${recipe.recipeDescription}</a></h5>
+                        </div>
+                    </div>
+                </c:forEach>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div>
+                <div class="col-md-12">
+                    <h4>Your reviws:</h4>
+                    <h3>${reviewWarning}</h3>
+                    <c:forEach items="${reviewsList}" var="review">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <div class="col-md-9">
+                                    <p>
+                                        <small><b>${review.recipeId.recipeTitle}</b></small>
+                                    </p>
+                                </div>
+                                <div class="col-md-3">
+                                    <p align="right">
+                                        <small>posted <b><i>${review.datePosted}</i></b></small>
+                                    </p>
+                                </div>
+                                <p>${review.text}</p>
+                                <p align="right">
+                                    <a href="recipe.jsp?recipeId=${review.recipeId.id}" class="btn btn-default"
+                                       role="button">See recipe</a>
+                                </p>
+                            </li>
+                        </ul>
+                    </c:forEach>
+                    <br><br>
                 </div>
             </div>
-            </c:forEach>
         </div>
     </div>
-</div>
 
 
+    <br><br><br><br><br><br><br>
 
 
+    <!-- footer -->
 
-<br><br><br><br><br><br><br>
-
-
-
-
-<!-- footer -->
-
-<footer>
-    <div class="container footer form-inline">
-        <div class="col-md-3">
-            <a href="index.jsp"> Home </a>
+    <footer>
+        <div class="container footer form-inline">
+            <div class="col-md-3">
+                <a href="index.jsp"> Home </a>
+            </div>
+            <div class="col-md-3">
+                <a href="products.html">Products</a>
+            </div>
+            <div class="col-md-3">
+                <a href="recipes-all.jsp">All recipes</a>
+            </div>
+            <div class="col-md-3">
+                <a href="contact.html">Contact</a>
+            </div>
         </div>
-        <div class="col-md-3">
-            <a href="products.html">Products</a>
-        </div>
-        <div class="col-md-3">
-            <a href="recipes-all.jsp">All recipes</a>
-        </div>
-        <div class="col-md-3">
-            <a href="contact.html">Contact</a>
-        </div>
-    </div>
-</footer>
+    </footer>
 
 </body>
 

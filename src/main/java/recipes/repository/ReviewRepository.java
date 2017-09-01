@@ -5,6 +5,7 @@ import hibernate.util.HibernateUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
+import recipes.model.Author;
 import recipes.model.Recipe;
 import recipes.model.Reviews;
 
@@ -41,6 +42,24 @@ public class ReviewRepository {
             String hql = "SELECT e FROM Reviews e WHERE e.recipeId=:id ORDER BY e.id DESC";
             Query<Reviews> query = session.createQuery(hql, Reviews.class);
             query.setParameter("id", recipeId);
+            return query.getResultList();
+        } catch (Exception ex) {
+            logger.error(ex);
+            session.getTransaction().rollback();
+            return Collections.emptyList();
+        } finally {
+            session.close();
+        }
+    }
+
+    public static List<Reviews> findByAuthorId(Integer id) {
+        Session session = null;
+        try {
+            session = HibernateUtil.openSession();
+            Author authorId = AuthorRepository.findById(id).get();
+            String hql = "SELECT e FROM Reviews e WHERE e.reviewAuthor=:id ORDER BY e.id DESC";
+            Query<Reviews> query = session.createQuery(hql, Reviews.class);
+            query.setParameter("id", authorId);
             return query.getResultList();
         } catch (Exception ex) {
             logger.error(ex);
