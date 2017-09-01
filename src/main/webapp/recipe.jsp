@@ -10,12 +10,19 @@
         pageContext.setAttribute("recipe", recipe.get());
     }
 
+    List<Reviews> reviewList = ReviewRepository.findByRecipeId(recipeId);
+    if (reviewList.isEmpty()) {
+        pageContext.setAttribute("warning", "No reviews yet. Be first...");
+    }
+    pageContext.setAttribute("review", reviewList);
+
     DIFFICULTY difficulty = recipe.get().getDifficulty();
     String diffName = DifficultyRepository.findByDifficulty(difficulty).getName();
     pageContext.setAttribute("difficultyName", diffName);
 %>
 
 <c:set value="${recipe}" var="recipe"/>
+<c:set value="${review}" var="reviewList"/>
 <c:set value="${difficultyName}" var="recipeDiff"/>
 
 
@@ -195,6 +202,7 @@
                 </div>
                 <div id="comments" class="tab-pane fade">
                     <form action="add-review" method="post">
+                        <input type="hidden" name="recipeId" value="${recipe.id}"/>
                         <div class="form-group">
                             <textarea class="form-control" rows="3" placeholder="what do you think?" name="review"
                                       type="text" maxlength="500"></textarea>
@@ -205,32 +213,20 @@
                     </form>
                     <hr>
                     <h3>Comments:</h3>
-                    <ul>
-                        <li>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam assumenda sunt, repudiandae
-                                sint amet esse quisquam. Ipsam enim laudantium quam veniam atque magni inventore esse
-                                illo, repellat, a numquam, beatae.</p>
-                        </li>
-                        <li>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam assumenda sunt, repudiandae
-                                sint amet esse quisquam. Ipsam enim laudantium quam veniam atque magni inventore esse
-                                illo, repellat, a numquam, beatae.</p>
-                        </li>
-                        <li>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam assumenda sunt, repudiandae
-                                sint amet esse quisquam. Ipsam enim laudantium quam veniam atque magni inventore esse
-                                illo, repellat, a numquam, beatae.</p>
-                        </li>
-                        <li>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam assumenda sunt, repudiandae
-                                sint amet esse quisquam. Ipsam enim laudantium quam veniam atque magni inventore esse
-                                illo, repellat, a numquam, beatae.</p>
-                        </li>
-                    </ul>
+                    <h4>${warning}</h4>
+                    <c:forEach items="${reviewList}" var="review">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <p>${review.text}</p>
+                                <p align="right">
+                                    <small>by <b><i>${review.reviewAuthor.username}</i></b>&nbsp <i>${review.datePosted}</i></small>
+                                </p>
+                            </li>
+                        </ul>
+                    </c:forEach>
                 </div>
             </div>
         </div>
-
         <div class="col-md-8">
             <div class="col-md-12">
                 <div class="well well-sm">

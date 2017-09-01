@@ -27,7 +27,7 @@ public class AuthorRepository {
         }
     }
 
-    public static Optional<Author> findById(int id) {
+    public static Optional<Author> findById(Integer id) {
         Session session = null;
         try {
             session = HibernateUtil.openSession();

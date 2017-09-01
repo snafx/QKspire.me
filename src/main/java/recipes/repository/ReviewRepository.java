@@ -5,9 +5,11 @@ import hibernate.util.HibernateUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
+import recipes.model.Recipe;
 import recipes.model.Reviews;
 
-import java.util.Optional;
+import java.util.Collections;
+import java.util.List;
 
 public class ReviewRepository {
     final static Logger logger = Logger.getLogger(AuthorRepository.class);
@@ -31,18 +33,19 @@ public class ReviewRepository {
         }
     }
 
-    public static Optional<Reviews> findById(Integer id) {
+    public static List<Reviews> findByRecipeId(Integer id) {
         Session session = null;
         try {
             session = HibernateUtil.openSession();
-            String hql = "SELECT e FROM Reviews e WHERE e.id=:id";
+            Recipe recipeId = RecipeRepository.findById(id).get();
+            String hql = "SELECT e FROM Reviews e WHERE e.recipeId=:id";
             Query<Reviews> query = session.createQuery(hql, Reviews.class);
-            query.setParameter("id", id);
-            return Optional.ofNullable((Reviews) query.getSingleResult());
+            query.setParameter("id", recipeId);
+            return query.getResultList();
         } catch (Exception ex) {
             logger.error(ex);
             session.getTransaction().rollback();
-            return Optional.empty();
+            return Collections.emptyList();
         } finally {
             session.close();
         }
