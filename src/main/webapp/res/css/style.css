@@ -5,11 +5,11 @@
 
 body {
     font-family: 'Roboto Slab', serif;
-    background: url('../img/background.jpg');
+    background: url('../img/background2.jpg');
     background-repeat: no-repeat;
     background-position: top;
     background-attachment: scroll;
-    background-size: contain;
+    background-size: 100%;
 }
 .navbar {
     background: #ffffff;
