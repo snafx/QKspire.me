@@ -27,12 +27,8 @@ Cooking recipes database for online storage.
 <h2>Screenshots</h2>
 
 ![](https://github.com/snafx/QKspire.me/blob/master/src/main/webapp/res/screenshots/1.png)
-<hr/>
 ![](https://github.com/snafx/QKspire.me/blob/master/src/main/webapp/res/screenshots/2.png)
-<hr/>
 ![](https://github.com/snafx/QKspire.me/blob/master/src/main/webapp/res/screenshots/3.png)
-<hr/>
 ![](https://github.com/snafx/QKspire.me/blob/master/src/main/webapp/res/screenshots/4.png)
-<hr/>
 ![](https://github.com/snafx/QKspire.me/blob/master/src/main/webapp/res/screenshots/5.png)
 
