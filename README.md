@@ -8,6 +8,7 @@ Cooking recipes database for online storage.
 <li>Java, Hibernate</li>
 <li>Web: JSP, HTML, CSS (Bootstrap), Tomcat</li>
 <li>Database: MySQL</li>
+<li>Custom Graphics: Adobe Photoshop CS6</li>
 </ul>
 <h2>Features</h2>
 <h4>User and session management</h4>
